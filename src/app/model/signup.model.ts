@@ -1,5 +1,6 @@
 export class signupModel{
-    constructor(public email:string,
+    constructor(
     public username:string,
+    public email:string,
     public password:string){}
 }

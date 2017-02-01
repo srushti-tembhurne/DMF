@@ -15,6 +15,7 @@ import {AuthService} from './service/auth.service';
 import {PageNotFound} from './component/underConstruction/Notfound.component';
 import {UnderConstruction}from './component/underConstruction/underConstruction.component';
 import { SignupComponent } from './component/login/signup.component';
+import {CommonService} from './service/common.service';
 
 import { RouterModule } from '@angular/router';
 
@@ -35,7 +36,7 @@ import { RouterModule } from '@angular/router';
         ClarityModule.forRoot(),
         ROUTING
     ],
-    providers: [AuthService],
+    providers: [AuthService,CommonService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
