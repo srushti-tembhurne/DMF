@@ -12,6 +12,9 @@ import { LoginComponent } from "./component/login/login.component";
 import { ForgotPasswordComponent } from './component/login/forgotpw.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './service/auth.service';
+import {PageNotFound} from './component/underConstruction/Notfound.component';
+import {UnderConstruction}from './component/underConstruction/underConstruction.component';
+
 
 import { RouterModule } from '@angular/router';
 
@@ -23,7 +26,7 @@ import { RouterModule } from '@angular/router';
         AboutComponent,
         HomeComponent,
         CreateVMComponent,
-        LoginComponent,ForgotPasswordComponent
+         LoginComponent,ForgotPasswordComponent,PageNotFound,UnderConstruction
     ],
     imports: [
         BrowserModule,

@@ -1,9 +1,14 @@
 <div class="forgotpw">
     <p>Enter your email address to get the link for password reset</p>
-    <label> Email </label> 
-    <input type="email" name="email" id="email" />
+    <form class="login" [formGroup]="forgotPwdfrm" (ngSubmit)="onlogin(forgotPwdfrm.value)">
+      <label> Email </label> 
+    <input type="email" formControlName="Email" id="email" />
     <div class="button">
-        <button type="button" class="btn btn-primary">Confirm</button>
+        <button type="submit" class="btn btn-primary">Confirm</button>
         <button type="button" class="btn btn-warning">Cancel</button>
     </div>
-</div> 
+    </form>    
+</div>
+
+    
+    

@@ -1,31 +1,25 @@
-import { Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {FormGroup, FormControl, Validators} from "@angular/forms";
+import { Component } from '@angular/core';
+import {FormGroup, FormControl, Validators,FormBuilder} from "@angular/forms";
 import {loginModel} from '../../model/login.model';
-import {AuthService} from '../../service/auth.service';
-import {Http} from '@angular/http';
-import {AuthManager} from '../../authmanager';
-
 
 @Component({
     styleUrls: ['./login.component.scss'],
     templateUrl: './login.component.html'
 })
-export class LoginComponent{
-    
-    loginForm = new FormGroup({
-        username: new FormControl(),
-        password: new FormControl()
-    });
-    constructor(private auth: AuthService){}
-    /*ngOnInit(){
 
-    }*/
-
-    onlogin(data){
-        console.log(data);
-        alert(JSON.stringify(data));
-        this.auth.authenticateNow(data);
-        alert('after');
+export class LoginComponent {
+    loginForm:FormGroup;
+    constructor(private _fb:FormBuilder){}
+  
+    onlogin(model:loginModel){        
+        alert(JSON.stringify(model));
+    }
+    ngOnInit()
+    {
+        this.loginForm=this._fb.group({
+            username:'',
+            password:'',
+            UserType:''
+        })
     }
 }

@@ -1,12 +1,12 @@
 <h1>VM Creation Form</h1>
-<form class="form" [formGroup]="vmcreationForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
+<form class="form" [formGroup]="vmcreationForm" (ngSubmit)="onSubmit(vmcreationForm.value)" [hidden]="submitted">
     <section class="form-block">
         <div class="form-group">
             <label for="vmName">VM Name</label>
             <label for="vmName" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
             [class.invalid]="vmcreationForm.get('vmName').invalid
                     && (vmcreationForm.get('vmName').dirty || vmcreationForm.get('vmName').touched)">
-                <input type="text" id="vmName" [(ngModel)]="vmName"  placeholder="Enter VM name" formControlName="vmName" required>
+                <input type="text" id="vmName"   placeholder="Enter VM name" formControlName="vmName" required>
                 <span class="tooltip-content">
                     VM Name is Required.
                 </span>
@@ -17,7 +17,7 @@
             <label for="clusterName" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
             [class.invalid]="vmcreationForm.get('clusterName').invalid
                     && (vmcreationForm.get('clusterName').dirty || vmcreationForm.get('clusterName').touched)">
-                <input type="text" id="clusterName" [(ngModel)]="clusterName" placeholder="Enter Cluster name" formControlName="clusterName" required>
+                <input type="text" id="clusterName" placeholder="Enter Cluster name" formControlName="clusterName" required>
                 <span class="tooltip-content">
                     Cluster Name is Required.
                 </span>
@@ -28,7 +28,7 @@
             <label for="templateName" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
             [class.invalid]="vmcreationForm.get('templateName').invalid
                     && (vmcreationForm.get('templateName').dirty || vmcreationForm.get('templateName').touched)">
-                <input type="text" id="templateName" [(ngModel)]="templateName" placeholder="Enter Template name" formControlName="templateName" required>
+                <input type="text" id="templateName"  placeholder="Enter Template name" formControlName="templateName" required>
                 <span class="tooltip-content">
                     Template Name is Required.
                 </span>
@@ -39,13 +39,13 @@
             <label for="memory" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
             [class.invalid]="vmcreationForm.get('memory').invalid
                     && (vmcreationForm.get('memory').dirty || vmcreationForm.get('memory').touched)">
-                <input type="text" id="memory" [(ngModel)]="memory" placeholder="Enter Memory required" formControlName="memory" required>
+                <input type="text" id="memory"  placeholder="Enter Memory required" formControlName="memory" required>
                 <span class="tooltip-content">
                     Memory is Required.
                 </span>
             </label>
         </div>
         <button type="submit" class="btn btn-primary" >Create</button>
-        <button type="button" class="btn btn-warning">Cancel</button>
+        <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
     </section>
 </form>

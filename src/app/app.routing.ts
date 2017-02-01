@@ -5,12 +5,15 @@
  */
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { Routes, RouterModule } from '@angular/router';
+
 import { AboutComponent } from './component/about/about.component';
 import { HomeComponent } from './component/home/home.component';
 import { CreateVMComponent } from './component/createVM/createVM.component';
 import { LoginComponent } from './component/login/login.component';
 import {ForgotPasswordComponent} from './component/login/forgotpw.component';
+import {PageNotFound} from './component/underConstruction/Notfound.component';
 import {AuthManager} from './authmanager';
+
 
 
 export const ROUTES: Routes = [
@@ -19,8 +22,8 @@ export const ROUTES: Routes = [
     {path: 'about', component: AboutComponent},
     {path: 'createVM', component: CreateVMComponent, canActivate: [AuthManager]},
     {path: 'login', component: LoginComponent},
-    {path: 'login/forgotpw', component:ForgotPasswordComponent}
-    
+    {path: 'login/forgotpw', component:ForgotPasswordComponent},
+    {path:'**' ,component:PageNotFound,pathMatch:'full'}
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES);

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {FormGroup, FormControl, Validators,FormBuilder} from "@angular/forms";
+import {Router} from '@angular/router';
 import {createVMModel} from '../../model/createVM.model';
 
 @Component({
@@ -7,20 +8,26 @@ import {createVMModel} from '../../model/createVM.model';
     templateUrl: './createVM.component.html'
 })
 export class CreateVMComponent {
-    vmcreationForm = new FormGroup({
-        vmName: new FormControl(),
-        clusterName: new FormControl(),
-        templateName: new FormControl(),
-        memory: new FormControl()
-    });
-    vmName:string;
-    clusterName: string;
-    templateName: string;
-    memory: string;
+    vmcreationForm:FormGroup;
     formdata:createVMModel;
-
-    onSubmit(){
-        this.formdata= new createVMModel(this.vmName,{name:this.clusterName},{name:this.templateName},this.memory);
+    parentRouter:any;
+    constructor(private _fb:FormBuilder){
+        this.parentRouter=Router;
+    }
+    onSubmit(model:any){
+        this.formdata= new createVMModel(model.vmName,{name:model.clusterName},{name:model.templateName},model.memory);
         alert(JSON.stringify(this.formdata));
+    }
+    onCancel(){
+        console.log("Bye !!!");
+        this.parentRouter.navigateByUrl('/');
+    }
+    ngOnInit(){
+        this.vmcreationForm=this._fb.group({
+            vmName:['',[Validators.required,Validators.minLength(6)]],
+            clusterName:'',
+            templateName:'',
+            memory:''
+        });
     }
 }
