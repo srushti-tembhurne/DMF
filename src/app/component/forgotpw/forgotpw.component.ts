@@ -4,7 +4,7 @@ import {Forgotpw} from '../../model/forgotpw.model';
 import { Router } from '@angular/router';
 
 @Component({
-    styleUrls: ['./login.component.scss'],
+   // styleUrls: ['./login.component.scss'],
     templateUrl: './forgotpw.component.html'
 })
 

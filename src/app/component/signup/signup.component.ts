@@ -6,7 +6,7 @@ import {CommonService} from '../../service/common.service';
 import 'rxjs/Rx';
 
 @Component({
-    styleUrls: ['./login.component.scss'],
+   // styleUrls: ['./login.component.scss'],
     templateUrl: './signup.component.html'
 })
 

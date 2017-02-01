@@ -9,12 +9,12 @@ import { HomeComponent } from "./component/home/home.component";
 import { AboutComponent } from "./component/about/about.component";
 import { CreateVMComponent } from "./component/createVM/createVM.component";
 import { LoginComponent } from "./component/login/login.component";
-import { ForgotPasswordComponent } from './component/login/forgotpw.component';
+import { ForgotPasswordComponent } from './component/forgotpw/forgotpw.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './service/auth.service';
 import {PageNotFound} from './component/underConstruction/Notfound.component';
 import {UnderConstruction}from './component/underConstruction/underConstruction.component';
-import { SignupComponent } from './component/login/signup.component';
+import { SignupComponent } from './component/signup/signup.component';
 import {CommonService} from './service/common.service';
 
 import { RouterModule } from '@angular/router';

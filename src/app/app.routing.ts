@@ -10,10 +10,10 @@ import { AboutComponent } from './component/about/about.component';
 import { HomeComponent } from './component/home/home.component';
 import { CreateVMComponent } from './component/createVM/createVM.component';
 import { LoginComponent } from './component/login/login.component';
-import {ForgotPasswordComponent} from './component/login/forgotpw.component';
+import {ForgotPasswordComponent} from './component/forgotpw/forgotpw.component';
 import {PageNotFound} from './component/underConstruction/Notfound.component';
 import {AuthManager} from './authmanager';
-import {SignupComponent} from './component/login/signup.component';
+import {SignupComponent} from './component/signup/signup.component';
 
 
 export const ROUTES: Routes = [
