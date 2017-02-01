@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './service/auth.service';
 import {PageNotFound} from './component/underConstruction/Notfound.component';
 import {UnderConstruction}from './component/underConstruction/underConstruction.component';
-
+import { SignupComponent } from './component/login/signup.component';
 
 import { RouterModule } from '@angular/router';
 
@@ -26,7 +26,7 @@ import { RouterModule } from '@angular/router';
         AboutComponent,
         HomeComponent,
         CreateVMComponent,
-         LoginComponent,ForgotPasswordComponent,PageNotFound,UnderConstruction
+         LoginComponent,ForgotPasswordComponent,SignupComponent,PageNotFound,UnderConstruction
     ],
     imports: [
         BrowserModule,

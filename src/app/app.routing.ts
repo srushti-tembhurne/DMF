@@ -13,7 +13,7 @@ import { LoginComponent } from './component/login/login.component';
 import {ForgotPasswordComponent} from './component/login/forgotpw.component';
 import {PageNotFound} from './component/underConstruction/Notfound.component';
 import {AuthManager} from './authmanager';
-
+import {SignupComponent} from './component/login/signup.component';
 
 
 export const ROUTES: Routes = [
@@ -23,6 +23,7 @@ export const ROUTES: Routes = [
     {path: 'createVM', component: CreateVMComponent},
     {path: 'login', component: LoginComponent},
     {path: 'login/forgotpw', component:ForgotPasswordComponent},
+    {path: 'login/signup', component:SignupComponent},
     {path:'**' ,component:PageNotFound,pathMatch:'full'}
 ];
 

@@ -1,0 +1,40 @@
+<h1>SignUp Form</h1>
+<form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)" [hidden]="submitted">
+    <section class="form-block">
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <label for="email" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
+            [class.invalid]="signupForm.get('email').invalid
+                    && (signupForm.get('email').dirty || signupForm.get('email').touched)">
+                <input type="email" id="email"   placeholder="Enter email address" formControlName="email" required>
+                <span class="tooltip-content">
+                    Email is Required.
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="username">User Name</label>
+            <label for="username" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
+            [class.invalid]="signupForm.get('username').invalid
+                    && (signupForm.get('username').dirty || signupForm.get('username').touched)">
+                <input type="text" id="username" placeholder="Enter User name" formControlName="username" required>
+                <span class="tooltip-content">
+                    User Name is Required.
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <label for="password" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
+            [class.invalid]="signupForm.get('password').invalid
+                    && (signupForm.get('password').dirty || signupForm.get('password').touched)">
+                <input type="password" id="password"  placeholder="Enter Password" formControlName="password" required>
+                <span class="tooltip-content">
+                    Password is Required.
+                </span>
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary" >Create an Account</button>
+        <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
+    </section>
+</form>

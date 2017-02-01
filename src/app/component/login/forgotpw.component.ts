@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder,FormGroup, FormControl, Validators} from "@angular/forms";
 import {Forgotpw} from '../../model/forgotpw.model';
+import { Router } from '@angular/router';
 
 @Component({
     styleUrls: ['./login.component.scss'],
@@ -10,7 +11,7 @@ import {Forgotpw} from '../../model/forgotpw.model';
 export class ForgotPasswordComponent {
      forgotPwdfrm:FormGroup;
      Email:string;  
-    constructor(private formBuilder:FormBuilder){}
+    constructor(private formBuilder:FormBuilder,public router:Router){}
     onlogin(model:Forgotpw){
         console.log(JSON.stringify(model));
     }
@@ -20,5 +21,7 @@ export class ForgotPasswordComponent {
             Email:'Please Enter UR Email'
         });
     }
-
+    onCancel(){
+        this.router.navigateByUrl('/');
+    }
 }

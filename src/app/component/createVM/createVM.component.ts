@@ -10,9 +10,9 @@ import {createVMModel} from '../../model/createVM.model';
 export class CreateVMComponent {
     vmcreationForm:FormGroup;
     formdata:createVMModel;
-    parentRouter:any;
-    constructor(private _fb:FormBuilder){
-        this.parentRouter=Router;
+    //parentRouter:any;
+    constructor(private _fb:FormBuilder,public router:Router){
+        //this.parentRouter=Router;
     }
     onSubmit(model:any){
         this.formdata= new createVMModel(model.vmName,{name:model.clusterName},{name:model.templateName},model.memory);
@@ -20,7 +20,7 @@ export class CreateVMComponent {
     }
     onCancel(){
         console.log("Bye !!!");
-        this.parentRouter.navigateByUrl('/');
+        this.router.navigateByUrl('/');
     }
     ngOnInit(){
         this.vmcreationForm=this._fb.group({
