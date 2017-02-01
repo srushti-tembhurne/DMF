@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ROUTING } from "./app.routing";
 import { HomeComponent } from "./component/home/home.component";
 import { AboutComponent } from "./component/about/about.component";
-import { CreateVMComponent } from "./component/createVM/createVM.component";
+import { CreateVMComponent } from "./component/VM/create/createVM.component";
 import { LoginComponent } from "./component/login/login.component";
 import { ForgotPasswordComponent } from './component/forgotpw/forgotpw.component';
 import { ReactiveFormsModule } from '@angular/forms';

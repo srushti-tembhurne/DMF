@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormControl, Validators,FormBuilder} from "@angular/forms";
 import {Router} from '@angular/router';
-import {createVMModel} from '../../model/createVM.model';
+import {createVMModel} from '../../../model/createVM.model';
 
 @Component({
    // styleUrls: ['../app/styles.css'],

@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutComponent } from './component/about/about.component';
 import { HomeComponent } from './component/home/home.component';
-import { CreateVMComponent } from './component/createVM/createVM.component';
+import { CreateVMComponent } from './component/VM/create/createVM.component';
 import { LoginComponent } from './component/login/login.component';
 import {ForgotPasswordComponent} from './component/forgotpw/forgotpw.component';
 import {PageNotFound} from './component/underConstruction/Notfound.component';

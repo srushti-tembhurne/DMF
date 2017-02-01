@@ -25,8 +25,8 @@ export class LoginComponent {
     {
         this.loginForm=this._fb.group({
             username:'',
-            password:'',
-            UserType:''
+            password:''
+           // UserType:''
         })
     }
 }
