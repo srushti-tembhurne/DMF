@@ -20,7 +20,7 @@ export const ROUTES: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
     {path: 'about', component: AboutComponent},
-    {path: 'createVM', component: CreateVMComponent, canActivate: [AuthManager]},
+    {path: 'createVM', component: CreateVMComponent},
     {path: 'login', component: LoginComponent},
     {path: 'login/forgotpw', component:ForgotPasswordComponent},
     {path:'**' ,component:PageNotFound,pathMatch:'full'}
