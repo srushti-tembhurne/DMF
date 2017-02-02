@@ -15,7 +15,7 @@
           <a href="#" [routerLink]="['/login']">Login</a>
     </div>
   </clr-header>
-  <nav class="sub-nav" [clr-nav-level]="1">
+ <!-- <nav class="sub-nav" [clr-nav-level]="1">
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="#" [routerLink]="['/home']"
@@ -28,10 +28,26 @@
         <a class="nav-link" href="#" [routerLink]="['/createVM']" [class.active]="router.url==='/createVM'">Create VM</a>
       </li>
     </ul>
+  </nav>-->
+  <div class="container-flex"><div class="row">
+  <nav class="sidenav clr-nav-level-1 col-md-4">
+    <section class="sidenav-content">
+      <a class="nav-link" href="#" [routerLink]="['/home']" [class.active]="router.url==='/home' || router.url==='/'">Home</a>
+      <a class="nav-link" href="#" [routerLink]="['/about']" [class.active]="router.url==='/about'">About</a>
+      <section class="nav-group collapsible">
+        <input id="tab2" type="checkbox">
+        <label for="tab2">VM</label>
+        <ul class="nav-list">
+            <li><a class="nav-link" href="#" [routerLink]="['/createVM']" [class.active]="router.url==='/createVM'">Create VM</a></li>
+            <li><a class="nav-link" routerlinkactive="active" href="#">Second Link</a></li>
+            <li><a class="nav-link" routerlinkactive="active" href="#">Third Link</a></li>
+        </ul>
+      </section>
+    </section>
   </nav>
-  <div class="content-container">
+  <div class="content-container col-md-10">
     <div class="content-area">
       <router-outlet></router-outlet>
     </div>
-  </div>
+  </div></div></div>
 </clr-main-container>
