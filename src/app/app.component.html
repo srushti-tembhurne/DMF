@@ -29,8 +29,8 @@
       </li>
     </ul>
   </nav>-->
-  <div class="container-flex"><div class="row">
-  <nav class="sidenav clr-nav-level-1 col-md-4">
+  <div class="container-flex"><div class="row" >
+  <nav class="sidenav clr-nav-level-1 col-md-4" [ngStyle]="{'display': visible}" >
     <section class="sidenav-content">
       <a class="nav-link" href="#" [routerLink]="['/home']" [class.active]="router.url==='/home' || router.url==='/'">Home</a>
       <a class="nav-link" href="#" [routerLink]="['/about']" [class.active]="router.url==='/about'">About</a>
@@ -45,7 +45,7 @@
       </section>
     </section>
   </nav>
-  <div class="content-container col-md-10">
+  <div class="content-container col-md-8">
     <div class="content-area">
       <router-outlet></router-outlet>
     </div>

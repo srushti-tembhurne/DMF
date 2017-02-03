@@ -35,9 +35,9 @@ describe('HomeComponent', () => {
         fixture.destroy();
     });
 
-    it('should create the home page', async(() => {
+/*    it('should create the home page', async(() => {
         expect(compiled).toBeTruthy();
-    }));
+    }));*/
 
     it(`should display: "${expectedMsg}"`, async(() => {
         expect(compiled.querySelector("p").textContent).toMatch(expectedMsg);

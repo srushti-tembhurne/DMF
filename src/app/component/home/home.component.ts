@@ -3,12 +3,22 @@
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
-import { Component } from "@angular/core";
+import { Component,EventEmitter,Output } from "@angular/core";
+import {DataTransferService} from '../../service/data-transfer.service';
+
 
 @Component({
     styleUrls: ['./home.component.scss'],
-    templateUrl: './home.component.html',
+    templateUrl: './home.component.html'
 })
 export class HomeComponent {
+  
+  
+    constructor( private DT:DataTransferService){
 
+    }
+    ngOnInit(){
+            console.log(this.DT.recievData());
+            
+    }    
 }

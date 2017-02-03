@@ -2,11 +2,12 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { CommonService } from './common.service';
+import {Http} from '@angular/http';
 
 describe('CommonService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CommonService]
+      providers: [CommonService,Http]
     });
   });
 

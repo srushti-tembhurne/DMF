@@ -4,11 +4,14 @@
  * The full license information can be found in LICENSE in the root directory of this project.
  */
 import { Component } from '@angular/core';
+import {DataTransferService} from '../../service/data-transfer.service';
 
 @Component({
     styleUrls: ['./about.component.scss'],
     templateUrl: './about.component.html'
 })
 export class AboutComponent {
-
+    constructor( private DT:DataTransferService){
+        
+    }
 }

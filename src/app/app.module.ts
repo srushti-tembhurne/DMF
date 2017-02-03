@@ -16,6 +16,9 @@ import {PageNotFound} from './component/underConstruction/Notfound.component';
 import {UnderConstruction}from './component/underConstruction/underConstruction.component';
 import { SignupComponent } from './component/signup/signup.component';
 import {CommonService} from './service/common.service';
+import {DataTransferService} from './service/data-transfer.service'; // Experimental Code
+
+
 
 import { RouterModule } from '@angular/router';
 
@@ -36,7 +39,7 @@ import { RouterModule } from '@angular/router';
         ClarityModule.forRoot(),
         ROUTING
     ],
-    providers: [AuthService,CommonService],
+    providers: [AuthService,CommonService,DataTransferService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {FormGroup, FormControl, Validators,FormBuilder} from "@angular/forms";
 import {Router} from '@angular/router';
 import {createVMModel} from '../../../model/createVM.model';
+//import {DataTransferService} from '../../../service/data-transfer.service';
+
 
 @Component({
    // styleUrls: ['../app/styles.css'],
@@ -11,7 +13,7 @@ export class CreateVMComponent {
     vmcreationForm:FormGroup;
     formdata:createVMModel;
     
-    constructor(private _fb:FormBuilder,private route:Router){        
+    constructor(private _fb:FormBuilder,private route:Router/*,private DT:DataTransferService*/){        
     }
     onSubmit(model:any){
         this.formdata= new createVMModel(model.vmName,{name:model.clusterName},{name:model.templateName},model.memory);
@@ -28,5 +30,9 @@ export class CreateVMComponent {
             templateName:'',
             memory:''
         });
+       // console.log(this.DT.recievData());        
+    }
+    ngOnDestroy(){
+        
     }
 }
