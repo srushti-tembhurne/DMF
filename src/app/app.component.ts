@@ -12,16 +12,18 @@ import {DataTransferService} from './service/data-transfer.service';
 export class AppComponent {
     visible:string;
     InVisible:boolean;
-    constructor(private router: Router,private DT:DataTransferService) {
-        //this.navFlag=false; 
-         this.DT.changeEmitted$.subscribe(text=>{
-            console.log(text);
+    UserName:string="Users 1";
+    constructor(private router: Router,private DT:DataTransferService) {       
+         this.DT.changeEmitted$.subscribe(text=>{           
             this.visible=text.display;
             this.InVisible=text.visible;
+            console.log(text.userName);
+            this.UserName=text.userName || "Guest";            
             });       
     }
     ngOnInit()
     {
-        this.visible="none";       
+        this.InVisible=false;  
+        this.UserName="User";    
     }
 }

@@ -5,6 +5,7 @@
  */
 import { Component,EventEmitter,Output } from "@angular/core";
 import {DataTransferService} from '../../service/data-transfer.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,16 +13,14 @@ import {DataTransferService} from '../../service/data-transfer.service';
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
+    UserCommonObj:any;
   
-  
-    constructor( private DT:DataTransferService){
+    constructor(private route:Router, private DT:DataTransferService){
         
     }
     ngOnInit(){
-
-            console.log(this.DT.recievData());            
-             this.DT.emitChange({            
-              visible:false
-    });
+            this.UserCommonObj=this.DT.recievData();
+            this.DT.isLoggedIn();  
+            this.DT.emitChange({ visible:false,UserName:"Aaseem" });
     }    
 }

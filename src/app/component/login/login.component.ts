@@ -19,6 +19,7 @@ export class LoginComponent {
     Res:any;
     details:any;
     visible:string;
+    userDetails:any;
     constructor(
     private _fb:FormBuilder,
     private CS:CommonService,
@@ -30,11 +31,16 @@ export class LoginComponent {
     onlogin(model:loginModel){        
         alert(JSON.stringify(model));
         this.details=model;
-        /* this.CS.postService('http://172.17.163.56:3000/login',model).subscribe(
-            data=>{this.Res=data},
+        if(window.sessionStorage){
+            window.sessionStorage.setItem('userObj',JSON.stringify(this.details));
+        }
+        /*this.CS.postService('http://172.17.163.56:3000/api/login',model).subscribe(
+            data=>{this.Res=data;
+            console.log(this.Res)
+        },
             err=>{console.log(err)},
-            ()=>{});*/            
-        this.router.navigateByUrl('/home')
+            ()=>{});*/           
+       this.router.navigateByUrl('/home')
     }
     ngOnInit()
     {
@@ -43,14 +49,19 @@ export class LoginComponent {
             password:''
            // UserType:''
         })
-          this.DT.emitChange({
-              visible:true
-    });
-          
+       
+          this.DT.emitChange({ visible:true ,userName:"Aasim"  });
+        this.DT.isLoggedIn();   
+              
     }
     ngOnDestroy()
     {
         this.DT.sendData(this.details);
-        this.DT.emitChange("block");
+        this.DT. isLoggedIn();
+        const userName=this.details.username
+        this.DT.emitChange({
+            visible:false,
+            userName:userName
+        });
     }
 }

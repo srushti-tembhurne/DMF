@@ -11,8 +11,8 @@ import {AuthService} from './service/auth.service';
 
 import {CommonService} from './service/common.service';
 import {DataTransferService} from './service/data-transfer.service'; 
-import {InMemoryWebApiModule} from '../../node_modules/angular2-in-memory-web-api';
-import {InMemoryService} from './server/inMemoryService';
+/*import {InMemoryWebApiModule} from '../../node_modules/angular2-in-memory-web-api';
+import {InMemoryService} from './server/inMemoryService';*/
 
 
 import { RouterModule } from '@angular/router';
