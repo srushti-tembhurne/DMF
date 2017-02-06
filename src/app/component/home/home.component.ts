@@ -15,10 +15,13 @@ export class HomeComponent {
   
   
     constructor( private DT:DataTransferService){
-
+        
     }
     ngOnInit(){
-            console.log(this.DT.recievData());
-            
+
+            console.log(this.DT.recievData());            
+             this.DT.emitChange({            
+              visible:false
+    });
     }    
 }

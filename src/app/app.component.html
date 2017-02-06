@@ -12,7 +12,8 @@
       </label>
     </form>
     <div class="header-actions">
-          <a href="#" [routerLink]="['/login']">Login</a>
+          <a href="#" [routerLink]="['/login']" [ngClass]="{'visible': !InVisible}">Login</a>
+          <a href="#" [routerLink]="['/home']" [ngClass]="{'visible': InVisible}" >Welcome</a>
     </div>
   </clr-header>
  <!-- <nav class="sub-nav" [clr-nav-level]="1">
@@ -30,7 +31,7 @@
     </ul>
   </nav>-->
   <div class="container-flex"><div class="row" >
-  <nav class="sidenav clr-nav-level-1 col-md-4" [ngStyle]="{'display': visible}" >
+  <nav class="sidenav clr-nav-level-1 col-md-4" [ngClass]="{'visible': InVisible}" >
     <section class="sidenav-content">
       <a class="nav-link" href="#" [routerLink]="['/home']" [class.active]="router.url==='/home' || router.url==='/'">Home</a>
       <a class="nav-link" href="#" [routerLink]="['/about']" [class.active]="router.url==='/about'">About</a>

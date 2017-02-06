@@ -11,11 +11,13 @@ import {DataTransferService} from './service/data-transfer.service';
 })
 export class AppComponent {
     visible:string;
+    InVisible:boolean;
     constructor(private router: Router,private DT:DataTransferService) {
         //this.navFlag=false; 
          this.DT.changeEmitted$.subscribe(text=>{
             console.log(text);
-            this.visible=text;
+            this.visible=text.display;
+            this.InVisible=text.visible;
             });       
     }
     ngOnInit()

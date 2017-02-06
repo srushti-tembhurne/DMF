@@ -33,8 +33,8 @@ export class LoginComponent {
         /* this.CS.postService('http://172.17.163.56:3000/login',model).subscribe(
             data=>{this.Res=data},
             err=>{console.log(err)},
-            ()=>{});*/
-            this.router.navigateByUrl('/home')
+            ()=>{});*/            
+        this.router.navigateByUrl('/home')
     }
     ngOnInit()
     {
@@ -43,7 +43,10 @@ export class LoginComponent {
             password:''
            // UserType:''
         })
-          this.DT.emitChange("none");
+          this.DT.emitChange({
+              visible:true
+    });
+          
     }
     ngOnDestroy()
     {
