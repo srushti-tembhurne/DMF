@@ -15,6 +15,7 @@ import {PageNotFound} from './component/underConstruction/Notfound.component';
 import {AuthManager} from './authmanager';
 import {SignupComponent} from './component/signup/signup.component';
 import {UnderConstruction}from './component/underConstruction/underConstruction.component';
+import {MonitorComponent} from './component/VM/monitor/monitor.component';
 
 
 export const ROUTES: Routes = [
@@ -23,10 +24,11 @@ export const ROUTES: Routes = [
     {path: 'about', component: AboutComponent},
     {path: 'createVM', component: CreateVMComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'monitor', component: MonitorComponent},
     {path: 'login/forgotpw', component:ForgotPasswordComponent},
     {path: 'login/signup', component:SignupComponent},
     {path:'**' ,component:PageNotFound,pathMatch:'full'}
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES);
-export const routComponents=[AboutComponent,HomeComponent,CreateVMComponent,LoginComponent,ForgotPasswordComponent,PageNotFound,SignupComponent,UnderConstruction];
+export const routComponents=[AboutComponent,HomeComponent,CreateVMComponent,LoginComponent,ForgotPasswordComponent,PageNotFound,SignupComponent,UnderConstruction,MonitorComponent];

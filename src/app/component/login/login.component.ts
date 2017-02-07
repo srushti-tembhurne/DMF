@@ -25,12 +25,20 @@ export class LoginComponent {
     private CS:CommonService,
     private DT:DataTransferService,
     private router:Router){
+         this.loginForm=this._fb.group({
+            username:'',
+            password:''
+           // UserType:''
+        })
+       
+        this.DT.emitChange({ visible:true });
+        this.DT.isLoggedIn();  
         
     }
   
     onlogin(model:loginModel){        
-        alert(JSON.stringify(model));
-        this.details=model;
+        alert(JSON.stringify(this.loginForm.valueChanges));
+        this.details=this.loginForm.value;
         if(window.sessionStorage){
             window.sessionStorage.setItem('userObj',JSON.stringify(this.details));
         }
@@ -44,24 +52,14 @@ export class LoginComponent {
     }
     ngOnInit()
     {
-        this.loginForm=this._fb.group({
-            username:'',
-            password:''
-           // UserType:''
-        })
-       
-          this.DT.emitChange({ visible:true ,userName:"Aasim"  });
-        this.DT.isLoggedIn();   
+        
               
     }
     ngOnDestroy()
     {
-        this.DT.sendData(this.details);
-        this.DT. isLoggedIn();
-        const userName=this.details.username
+        this.DT. isLoggedIn();      
         this.DT.emitChange({
-            visible:false,
-            userName:userName
+            visible:false          
         });
     }
 }

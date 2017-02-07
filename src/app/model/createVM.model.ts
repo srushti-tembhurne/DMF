@@ -1,7 +1,11 @@
 import {NameProps} from './NameProps.model';
 export class createVMModel{
-    constructor(public vmName:string,
-    public  cluster: NameProps,
-    public template: NameProps,
-    public memory: string){}
+    constructor(
+    public Name:string,
+    public OS: string,
+    public diskSize: string,
+    public cpuCore:number,
+    public cpuSocket:number,
+    public Memory:number
+    ){}
 }

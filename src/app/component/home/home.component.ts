@@ -6,6 +6,7 @@
 import { Component,EventEmitter,Output } from "@angular/core";
 import {DataTransferService} from '../../service/data-transfer.service';
 import {Router} from '@angular/router';
+import {CommonService} from '../../service/common.service';
 
 
 @Component({
@@ -14,13 +15,17 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent {
     UserCommonObj:any;
-  
-    constructor(private route:Router, private DT:DataTransferService){
+    Res:any;
+    constructor(private route:Router, private DT:DataTransferService,private CS:CommonService){
         
     }
     ngOnInit(){
             this.UserCommonObj=this.DT.recievData();
             this.DT.isLoggedIn();  
-            this.DT.emitChange({ visible:false,UserName:"Aaseem" });
+            this.DT.emitChange({ visible:false });
+         /*   this.CS.getService('http://172.17.163.56:3000/api/request').subscribe(
+            data=>{this.Res=data},
+            err=>{console.log(err)},
+            ()=>{});*/
     }    
 }
