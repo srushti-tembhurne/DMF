@@ -2,6 +2,8 @@
 // This software is released under MIT license.
 // The full license information can be found in LICENSE in the root directory of this project.
 $header-text:#fafafa;
+$bg-white:#fff;
+
 $font-metro:Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
 .clr-icon {
   &.clr-clarity-logo {
@@ -20,8 +22,15 @@ $font-metro:Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
     margin-right: 1rem;
   }
 }
+.main-container{
+  background:$bg-white;
+  .content-container{
+      margin: 0 auto;
+    }
 .container-flex .content-area{
-    overflow:hidden !important;
+    overflow-y:inherit;
+}
+
 }
 .visible{
   display: none;
