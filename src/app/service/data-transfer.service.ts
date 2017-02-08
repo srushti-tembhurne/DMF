@@ -28,12 +28,12 @@ export class DataTransferService {
       return this.data;
   }
     isLoggedIn()
-    {
+    {     
       const pathName:string=window.location.pathname;
       if(window.sessionStorage){
-                this.userDetails=JSON.parse(window.sessionStorage.getItem('userObj'));
+                this.userDetails=window.sessionStorage.getItem('username');
             }   
-            if(!this.userDetails || !this.userDetails.username)   
+            if(!this.userDetails )   
             {
                 this.router.navigateByUrl('/login');
             }else{

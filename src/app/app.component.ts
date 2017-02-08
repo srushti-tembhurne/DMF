@@ -16,7 +16,14 @@ export class AppComponent {
     constructor(private router: Router,private DT:DataTransferService) {       
          this.DT.changeEmitted$.subscribe(text=>{           
             this.InVisible=text.visible;                      
-            });       
+        }); 
+        this.router.events.subscribe(data=>{
+            /*console.log("RouteChange event");
+            console.log(data);*/
+            this.UserName=window.sessionStorage.getItem('username') || "User";
+            this.InVisible=this.DT.recievData()||'';
+            console.log(this.InVisible);
+        });      
     }
     ngOnInit()
     {
