@@ -52,10 +52,12 @@ export class CreateVMComponent {
 
     onSubmit(){
         let model=this.vmcreationForm.value;
-        this.formdata= new createVMModel(model.vmName,model.OS,model.diskSize,model.cpuCore,model.cpuSocket,model.memory);
+        this.formdata= new createVMModel(model.vmName,model.OS,model.diskSize,model.cpuCore,model.memory);
         alert(JSON.stringify(this.formdata));
       /*  this.CS.postService('http://172.17.163.56:3000/api/request',this.formdata).subscribe(
-            data=>{this.Res=data},
+            data=>{this.Res=data;
+            console.log(this.Res)
+        },
             err=>{console.log(err)},
             ()=>{}); */
 
@@ -63,10 +65,6 @@ export class CreateVMComponent {
     }
     onCancel(){     
       this.route.navigateByUrl('/');       
-   }
-   filterVal(evt)
-   {
-       alert(evt.keyChar());
    }
     ngOnInit(){
         /* this.CS.getService('http://172.17.163.56:3000/api/getOS').subscribe(

@@ -16,9 +16,10 @@ import 'rxjs/Rx';
 
 export class LoginComponent {
     loginForm:FormGroup;
-    Res:any;
     details:any;
+    result:any;
     visible:string;
+    InVisible:boolean;
     userDetails:any;
     constructor(
     private _fb:FormBuilder,
@@ -26,7 +27,7 @@ export class LoginComponent {
     private DT:DataTransferService,
     private router:Router){
          this.loginForm=this._fb.group({
-            username:'',
+            email:'',
             password:''
            // UserType:''
         })
@@ -37,23 +38,27 @@ export class LoginComponent {
     }
   
     onlogin(model:loginModel){        
-        alert(JSON.stringify(this.loginForm.valueChanges));
+     //   alert(JSON.stringify(this.loginForm.valueChanges));
         this.details=this.loginForm.value;
         if(window.sessionStorage){
             window.sessionStorage.setItem('userObj',JSON.stringify(this.details));
         }
-        /*this.CS.postService('http://172.17.163.56:3000/api/login',model).subscribe(
-            data=>{this.Res=data;
-            console.log(this.Res)
+        this.CS.postService('http://172.17.163.56:3002/api/login',model).subscribe(
+            data=>{
+            console.log(data);
+            if(data.test=='failure'){
+                this.result=data.result;
+                console.log(data.result);
+                this.InVisible=true;
+            }
         },
             err=>{console.log(err)},
-            ()=>{});*/           
-       this.router.navigateByUrl('/home')
+            ()=>{});          
+     //  this.router.navigateByUrl('/home')
     }
     ngOnInit()
     {
-        
-              
+       this.InVisible=false;
     }
     ngOnDestroy()
     {

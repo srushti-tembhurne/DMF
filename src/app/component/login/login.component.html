@@ -12,7 +12,7 @@
                     <option>Administrator</option>
                 </select>
             </div>-->
-                <input class="username" type="email" id="login_username" placeholder="Email" formControlName="username" required/>
+                <input class="username" type="email" id="login_username" placeholder="Email" formControlName="email" required/>
                 <input class="password" type="password" id="login_password" placeholder="Password" formControlName="password"  minlength="6" required/>
   
             <div class="checkbox">
@@ -21,8 +21,8 @@
                     Remember me
                 </label>
             </div>
-            <div class="error">
-                Invalid user name or password
+            <div  [ngClass]="{'visible': !InVisible,error :InVisible,active :InVisible}">
+                {{result}} 
             </div>
             <button type="submit" class="btn btn-primary">LOG IN</button>
             <a [routerLink]="['signup']" class="signup">Sign up for an account</a>

@@ -5,7 +5,6 @@ export class createVMModel{
     public OS: string,
     public diskSize: string,
     public cpuCore:number,
-    public cpuSocket:number,
     public Memory:number
     ){}
 }
