@@ -32,7 +32,8 @@ export class LoginComponent {
            // UserType:''
         })       
         //this.DT.emitChange({ visible:true });
-        this.DT.sendData({ visible:true });
+        console.log("Started ")
+        this.DT.sendData({ visible:false });
         this.DT.isLoggedIn();  
         
     }
@@ -46,19 +47,21 @@ export class LoginComponent {
     }
     loginResult(data)
     {
-        if(data.test=="success")
+        console.log(data);
+        if(data.success)
             {                
                 let storage=window.sessionStorage;
                 storage.setItem('token',data.token);
                 storage.setItem('expiry_in',data.expiry_in);
                 storage.setItem('username',data.username);
+                this.InVisible=false;
                 this.router.navigateByUrl('/home');
-            }else if(data.test=='failure'){
+            }else if(!data.success){
                 this.result=data.result;
                 console.log(data.result);
                 this.InVisible=true;
             }
-       this.InVisible=false;
+       
     }
    
 }

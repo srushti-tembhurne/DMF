@@ -18,10 +18,11 @@ export class AppComponent {
             this.InVisible=text.visible;                      
         }); 
         this.router.events.subscribe(data=>{
-            /*console.log("RouteChange event");
-            console.log(data);*/
+            console.log("RouteChange event");
+            console.log(data);
             this.UserName=window.sessionStorage.getItem('username') || "User";
-            this.InVisible=this.DT.recievData()||'';
+            let visibleFlag=this.DT.recievData()||false;
+            (visibleFlag !== false)?this.InVisible=visibleFlag.visible :this.InVisible=visibleFlag;
             console.log(this.InVisible);
         });      
     }
