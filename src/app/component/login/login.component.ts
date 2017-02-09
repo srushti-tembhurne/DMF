@@ -37,42 +37,28 @@ export class LoginComponent {
         
     }
   
-<<<<<<< .mine    onlogin(model:loginModel){                              
+    onlogin(model:loginModel){                              
         this.CS.postService('http://172.17.163.56:3002/api/login',this.loginForm.value).subscribe(
-            data=>{this.loginResult(data);},
-=======    onlogin(model:loginModel){        
-     //   alert(JSON.stringify(this.loginForm.valueChanges));
-        this.details=this.loginForm.value;
-        if(window.sessionStorage){
-            window.sessionStorage.setItem('userObj',JSON.stringify(this.details));
-        }
-        this.CS.postService('http://172.17.163.56:3002/api/login',model).subscribe(
-            data=>{
-            console.log(data);
-            if(data.test=='failure'){
-                this.result=data.result;
-                console.log(data.result);
-                this.InVisible=true;
-            }
-        },
->>>>>>> .theirs            err=>{console.log(err)},
-<<<<<<< .mine            ()=>{}); 
-=======            ()=>{});          
+            data=>{this.loginResult(data);},  
+           err=>{console.log(err)},
+            ()=>{});            
      //  this.router.navigateByUrl('/home')
->>>>>>> .theirs    }
+    }
     loginResult(data)
     {
-<<<<<<< .mine        if(data.test=="success")
+        if(data.test=="success")
             {                
                 let storage=window.sessionStorage;
                 storage.setItem('token',data.token);
                 storage.setItem('expiry_in',data.expiry_in);
                 storage.setItem('username',data.username);
                 this.router.navigateByUrl('/home');
-            }else{
-                console.log(data);
+            }else if(data.test=='failure'){
+                this.result=data.result;
+                console.log(data.result);
+                this.InVisible=true;
             }
-=======       this.InVisible=false;
->>>>>>> .theirs    }
+       this.InVisible=false;
+    }
    
 }
