@@ -31,4 +31,11 @@ export class AppComponent {
         this.InVisible=false;  
         this.UserName= "User";    
     }
+    onlogout(){
+        let storage=window.sessionStorage;
+        storage.setItem('token','');
+        storage.setItem('expiry_in','');
+        storage.setItem('username','');
+        this.router.navigateByUrl('/login');
+    }
 }
