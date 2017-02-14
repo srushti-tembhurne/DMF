@@ -24,24 +24,15 @@ $font-metro:Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
     margin-right: 1rem;
     position: relative;
   }
-  .logout:before{
+  
+ /* .logout:before{
     content:"|";
     padding-right: 15px;
 
-  }
+  }*/
 }
 .main-container{
   background:$bg-white;
-  .sidenav{
-    position: absolute;
-    border-right: 1px solid $border-gray;
-    padding-right: 0;
-    top:60px;
-    bottom: 0;
-  }
-  .content-container{
-      margin: 0 auto;
-    }
 .container-flex .content-area{
     overflow-y:inherit;
 }

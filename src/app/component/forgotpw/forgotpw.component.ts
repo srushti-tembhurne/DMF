@@ -22,6 +22,6 @@ export class ForgotPasswordComponent {
         });
     }
     onCancel(){
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/');
     }
 }
