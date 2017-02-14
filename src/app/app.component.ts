@@ -13,23 +13,24 @@ export class AppComponent {
     visible:string;
     InVisible:boolean;
     UserName:string;
+    showNav:boolean = true;
     constructor(private router: Router,private DT:DataTransferService) {       
          this.DT.changeEmitted$.subscribe(text=>{           
             this.InVisible=text.visible;                      
         }); 
         this.router.events.subscribe(data=>{
-            console.log("RouteChange event");
-            console.log(data);
             this.UserName=window.sessionStorage.getItem('username') || "User";
             let visibleFlag=this.DT.recievData()||false;
             (visibleFlag !== false)?this.InVisible=visibleFlag.visible :this.InVisible=visibleFlag;
-            console.log(this.InVisible);
         });      
     }
     ngOnInit()
     {
         this.InVisible=false;  
         this.UserName= "User";    
+    }
+    toggleClass(){
+        this.showNav = !this.showNav;
     }
     onlogout(){
         let storage=window.sessionStorage;
