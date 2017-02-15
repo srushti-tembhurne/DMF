@@ -12,31 +12,15 @@
                 </span>
             </label>
         </div>
-        <!--<div class="form-group">
-            <label for="OS">Operating System</label>
-            <label for="OS" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
-            [class.invalid]="vmcreationForm.get('OS').invalid
-                    && (vmcreationForm.get('OS').dirty || vmcreationForm.get('OS').touched)">
-                <input type="text" id="OS" placeholder="Select Operating System name" formControlName="OS" required>
-                <span class="tooltip-content">
-                    Operating System Name is Required.
-                </span>
-            </label>
-        </div>-->
         <div class="form-group">
             <label for="OS">Operating System</label>
             <label for="OS" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
             [class.invalid]="vmcreationForm.get('OS').invalid
                     && (vmcreationForm.get('OS').dirty || vmcreationForm.get('OS').touched)">
-               <!-- <input type="text" id="OS" placeholder="Select Operating System name" formControlName="OS" required>-->
                
                 <div class="select form-control">
                     <select id="exampleSelect1" formControlName="OS" >
                         <option *ngFor="let os of osList">{{os}}</option>
-                        <!--<option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>-->
                     </select>
                 </div>
                 
@@ -50,7 +34,7 @@
             <label for="diskSize" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
             [class.invalid]="vmcreationForm.get('diskSize').invalid
                     && (vmcreationForm.get('diskSize').dirty || vmcreationForm.get('diskSize').touched)">
-                <input type="text" id="diskSize"  placeholder="Enter Disk Size in GBs" formControlName="diskSize" OnlyNumber="true" required>
+                <input type="text" id="diskSize"  placeholder="Enter Disk Size in GBs" formControlName="diskSize" (keypress)="onlyNumberKey($event)"  required>
                 <span class="tooltip-content">
                     Disk Size is Required.
                 </span>
@@ -61,7 +45,6 @@
             <label for="cpuCore" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
             [class.invalid]="vmcreationForm.get('cpuCore').invalid
                     && (vmcreationForm.get('cpuCore').dirty || vmcreationForm.get('cpuCore').touched)">
-               <!-- <input type="text" id="cpuCore"  placeholder="Enter CPU Core " formControlName="cpuCore" required>-->
               
            
             <div class="select">
@@ -82,7 +65,7 @@
             <label for="Memory" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md"
             [class.invalid]="vmcreationForm.get('Memory').invalid
                     && (vmcreationForm.get('Memory').dirty || vmcreationForm.get('Memory').touched)">
-                <input type="text" id="Memory"  placeholder="Enter Memory " formControlName="Memory" OnlyNumber="true" required>
+                <input type="text" id="Memory"  placeholder="Enter Memory " formControlName="Memory" (keypress)="onlyNumberKey($event)" required>
                 <span class="tooltip-content">
                     Memory is Required.
                 </span>

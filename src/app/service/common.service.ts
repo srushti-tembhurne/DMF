@@ -11,9 +11,9 @@ export class CommonService {
   {
     if(url.indexOf('login')==-1)
     {
-      console.log("without login")
       let headers= new Headers();
       headers.append('x-access-token',window.sessionStorage.getItem('token'));
+      headers.append('username',window.sessionStorage.getItem('username'));
       return this.http.post(url,data,{headers:headers}).map((res:Response)=>{return res.json();});
     }
     return this.http.post(url,data).map((res:Response)=>{return res.json();});
@@ -21,6 +21,7 @@ export class CommonService {
   getService(url){
     let headers= new Headers();
      headers.append('token',"jshdflghsdlkfjgskldjfgskdjfgsdfgjsdfhkgjhsdfkljgnklsdjfvnsdkfjhgsdfgsdfgk");
+     headers.append('username',window.sessionStorage.getItem('username'));
     return this.http.get(url,{headers:headers}).map((res:Response)=>{return res.json();});
   }
 }
