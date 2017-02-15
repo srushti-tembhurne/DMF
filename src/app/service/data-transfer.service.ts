@@ -21,12 +21,11 @@ export class DataTransferService {
     emitChange(change: any) {
         this.emitChangeSource.next(change);
     }
-     sendData(data:any)  {
-    this.data=data;   
-  }
-  recievData()  {  
-      return this.data;
-  }
+    //function used to send data from one component to anoher
+    sendData(data:any) { this.data=data; }  
+    //function used to recieve data wich was sent by sendData method
+    recievData()  {  return this.data; }
+    //Method used to check the user is loggedin or not and redirect respectivley 
     isLoggedIn()
     {     
       const pathName:string=window.location.pathname;

@@ -6,7 +6,7 @@ import {CommonService} from '../../../service/common.service';
 })
 export class MonitorComponent implements OnInit {
   MonitorList:any;
-  constructor(private CS:CommonService) {
+  constructor(/*private CS:CommonService*/) {
     /*this.CS.getService('').subscribe(
       data=>{this.MonitorList=data},
       err=>{console.log(err)},

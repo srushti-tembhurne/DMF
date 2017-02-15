@@ -23,16 +23,17 @@ export class CreateVMComponent {
             OS:[''],
             diskSize:[''],
             cpuCore:['1'],            
-            Memory:['']
+            Memory:[''],
+            type:'create-vm'
         }); 
         this.osList=['Window 7','Window 8','Window 10','Ubuntu','CentOs','RedHat'];       
     }
 
     onSubmit(){
         let model=this.vmcreationForm.value;
-        this.formdata= new createVMModel(model.vmName,model.OS,model.diskSize,model.cpuCore,model.memory);
+        this.formdata= new createVMModel(model.vmName,model.OS,model.diskSize,model.cpuCore,model.memory,model.type);
         alert(JSON.stringify(this.formdata));
-        this.CS.postService('http://172.17.163.56:3000/api/request',this.formdata).subscribe(
+        this.CS.postService('/api/request',this.formdata).subscribe(
             data=>{this.Res=data;
             console.log(this.Res)
         },
@@ -46,7 +47,7 @@ export class CreateVMComponent {
       this.route.navigateByUrl('/');       
    }
     ngOnInit(){
-        /* this.CS.getService('http://172.17.163.56:3000/api/getOS').subscribe(
+        /* this.CS.getService('/api/getOS').subscribe(
             data=>{this.osList=data},
             err=>{console.log(err)},
             ()=>{});*/

@@ -3,10 +3,10 @@
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
-import { Component,EventEmitter,Output } from "@angular/core";
-import {DataTransferService} from '../../service/data-transfer.service';
-import {Router} from '@angular/router';
-import {CommonService} from '../../service/common.service';
+import { Component, EventEmitter, Output } from "@angular/core";
+import { DataTransferService } from '../../service/data-transfer.service';
+import { Router } from '@angular/router';
+import { CommonService } from '../../service/common.service';
 
 
 @Component({
@@ -14,18 +14,18 @@ import {CommonService} from '../../service/common.service';
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
-    UserCommonObj:any;
-    Res:any;
-    constructor(private route:Router, private DT:DataTransferService,private CS:CommonService){
-        
+    UserCommonObj: any;
+    Res: any;
+    constructor(private route: Router, private DT: DataTransferService, private CS: CommonService) {
+
     }
-    ngOnInit(){
-            this.UserCommonObj=this.DT.recievData();
-            this.DT.isLoggedIn();  
-            this.DT.emitChange({ visible:false });
-         /*   this.CS.getService('http://172.17.163.56:3000/api/request').subscribe(
-            data=>{this.Res=data},
-            err=>{console.log(err)},
-            ()=>{});*/
-    }    
+    ngOnInit() {
+        this.UserCommonObj = this.DT.recievData();
+        this.DT.isLoggedIn();
+        this.DT.sendData({ visible: false });        
+      /*  this.CS.getService('/api/request').subscribe(
+            data => { this.Res = data },
+            err => { console.log(err) },
+            () => { });*/
+    }
 }

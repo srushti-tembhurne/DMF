@@ -2,6 +2,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import {ClarityModule} from 'clarity-angular';
+import {CommonService} from '../../../service/common.service';
+import {DataTransferService} from  '../../../service/data-transfer.service';
 
 import { MonitorComponent } from './monitor.component';
 
@@ -11,7 +14,11 @@ describe('MonitorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MonitorComponent ]
+     imports: [
+                ClarityModule.forRoot()
+            ],
+      declarations: [ MonitorComponent ],
+      providers:[]
     })
     .compileComponents();
   }));
