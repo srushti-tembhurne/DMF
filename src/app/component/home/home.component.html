@@ -4,27 +4,52 @@
   ~ The full license information can be found in LICENSE in the root directory of this project.
   -->
 
-<clr-stack-view>
+<!--<clr-stack-view>
     <clr-stack-header>List of Requests</clr-stack-header>
     <clr-stack-block *ngFor="let re of Requestdata;let i = index">
-        <clr-stack-label>Request ID - {{re.result[i].id}}</clr-stack-label>
-        <clr-stack-label>Request Type - {{re.result[i].type}}</clr-stack-label>
-        <clr-stack-label>Request Status - {{re.result[i].status}}</clr-stack-label>
+        <clr-stack-label>Request ID - {{re.id}}</clr-stack-label>
+        <clr-stack-label>Request Type - {{re.type}}</clr-stack-label>
+        <clr-stack-label>Request Status - {{re.status}}</clr-stack-label>
         <clr-stack-block>
             <clr-stack-label>Memory</clr-stack-label>
-            <clr-stack-content>{{re.result[i].data[0].Memory}}</clr-stack-content>
+            <clr-stack-content>{{re.data[0].Memory}}</clr-stack-content>
         </clr-stack-block>
         <clr-stack-block>
             <clr-stack-label>cpuCore</clr-stack-label>
-            <clr-stack-content>{{re.result[i].data[0].cpuCore}}</clr-stack-content>
+            <clr-stack-content>{{re.data[0].cpuCore}}</clr-stack-content>
         </clr-stack-block>
         <clr-stack-block>
             <clr-stack-label>diskSize</clr-stack-label>
-            <clr-stack-content>{{re.result[i].data[0].diskSize}}</clr-stack-content>
+            <clr-stack-content>{{re.data[0].diskSize}}</clr-stack-content>
         </clr-stack-block>
         <clr-stack-block>
             <clr-stack-label>vmName</clr-stack-label>
-            <clr-stack-content>{{re.result[i].data[0].vmName}}</clr-stack-content>
+            <clr-stack-content>{{re.data[0].vmName}}</clr-stack-content>
         </clr-stack-block>
     </clr-stack-block>
-</clr-stack-view>
+</clr-stack-view> -->
+<h1> List of Requests</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>vmName</th>
+            <th>Type</th>
+            <th>Memory</th>
+            <th>cpuCore</th>
+            <th>diskSize</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let re of Requestdata;let i = index">
+            <td>{{re.id}}</td>
+            <td>{{re.data[0].vmName}}</td>
+            <td>{{re.type}}</td>
+            <td>{{re.data[0].Memory}}</td>
+            <td>{{re.data[0].cpuCore}}</td>
+            <td>{{re.data[0].diskSize}}</td>
+            <td>{{re.status}}</td>
+        </tr>
+    </tbody>
+</table>
