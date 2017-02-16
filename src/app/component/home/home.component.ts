@@ -35,8 +35,8 @@ export class HomeComponent {
     displayData(data){
         this.Requestdata=data;
         this.Requestdata=Array.of(this.Requestdata);
-        console.log(this.Requestdata[0].result[0].type);
-       // console.log(this.Requestdata.status);
+       // console.log(this.Requestdata[0].result[0].type);
+        console.log(this.Requestdata);
     }
    
 }

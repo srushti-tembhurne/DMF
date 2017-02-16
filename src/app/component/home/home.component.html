@@ -12,19 +12,19 @@
         <clr-stack-label>Request Status - {{re.result[i].status}}</clr-stack-label>
         <clr-stack-block>
             <clr-stack-label>Memory</clr-stack-label>
-            <clr-stack-content>{{re.result[i].data[i].Memory}}</clr-stack-content>
+            <clr-stack-content>{{re.result[i].data[0].Memory}}</clr-stack-content>
         </clr-stack-block>
         <clr-stack-block>
             <clr-stack-label>cpuCore</clr-stack-label>
-            <clr-stack-content>{{re.result[i].data[i].cpuCore}}</clr-stack-content>
+            <clr-stack-content>{{re.result[i].data[0].cpuCore}}</clr-stack-content>
         </clr-stack-block>
         <clr-stack-block>
             <clr-stack-label>diskSize</clr-stack-label>
-            <clr-stack-content>{{re.result[i].data[i].diskSize}}</clr-stack-content>
+            <clr-stack-content>{{re.result[i].data[0].diskSize}}</clr-stack-content>
         </clr-stack-block>
         <clr-stack-block>
             <clr-stack-label>vmName</clr-stack-label>
-            <clr-stack-content>{{re.result[i].data[i].vmName}}</clr-stack-content>
+            <clr-stack-content>{{re.result[i].data[0].vmName}}</clr-stack-content>
         </clr-stack-block>
     </clr-stack-block>
 </clr-stack-view>
