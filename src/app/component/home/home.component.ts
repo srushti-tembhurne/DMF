@@ -7,6 +7,7 @@ import { Component, EventEmitter, Output } from "@angular/core";
 import { DataTransferService } from '../../service/data-transfer.service';
 import { Router } from '@angular/router';
 import { CommonService } from '../../service/common.service';
+import { RequestList,DataArray,ResultArray } from '../../model/requestlist.model';
 
 
 @Component({
@@ -15,17 +16,27 @@ import { CommonService } from '../../service/common.service';
 })
 export class HomeComponent {
     UserCommonObj: any;
-    Res: any;
+    Requestdata: any;
     constructor(private route: Router, private DT: DataTransferService, private CS: CommonService) {
 
     }
+     
     ngOnInit() {
         this.UserCommonObj = this.DT.recievData();
         this.DT.isLoggedIn();
         this.DT.sendData({ visible: false });        
-      /*  this.CS.getService('/api/request').subscribe(
-            data => { this.Res = data },
+        this.CS.getService('/api/request').subscribe(
+            data => { console.log(data);
+                this.displayData(data); },
             err => { console.log(err) },
-            () => { });*/
+            () => { });
     }
+
+    displayData(data){
+        this.Requestdata=data;
+        this.Requestdata=Array.of(this.Requestdata);
+        console.log(this.Requestdata[0].result[0].type);
+       // console.log(this.Requestdata.status);
+    }
+   
 }
