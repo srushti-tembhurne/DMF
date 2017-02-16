@@ -18,20 +18,21 @@ export class CreateVMComponent {
     Res:any;
     
     constructor(private _fb:FormBuilder,private route:Router,private DT:DataTransferService,private CS:CommonService){
+        this.osList=['Window 7','Window 8','Window 10','Ubuntu','CentOs','RedHat'];  
         this.vmcreationForm=this._fb.group({
             vmName:['',[Validators.required,Validators.minLength(3)]],
-            OS:[''],
+            OS:[this.osList[0]],
             diskSize:[''],
             cpuCore:['1'],            
             Memory:[''],
             type:'create-vm'
         }); 
-        this.osList=['Window 7','Window 8','Window 10','Ubuntu','CentOs','RedHat'];       
+             
     }
 
     onSubmit(){
         let model=this.vmcreationForm.value;
-        this.formdata= new createVMModel(model.vmName,model.OS,model.diskSize,model.cpuCore,model.memory,model.type);
+        this.formdata= new createVMModel(model.vmName,model.OS,model.diskSize,model.cpuCore,model.Memory,model.type);
         alert(JSON.stringify(this.formdata));
         this.CS.postService('/api/request',this.formdata).subscribe(
             data=>{this.Res=data;

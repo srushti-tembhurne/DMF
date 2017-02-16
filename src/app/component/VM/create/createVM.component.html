@@ -19,7 +19,7 @@
                     && (vmcreationForm.get('OS').dirty || vmcreationForm.get('OS').touched)">
                
                 <div class="select form-control">
-                    <select id="exampleSelect1" formControlName="OS" >
+                    <select id="exampleSelect1" value="osList[0]" formControlName="OS" >
                         <option *ngFor="let os of osList">{{os}}</option>
                     </select>
                 </div>
