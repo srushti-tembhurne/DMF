@@ -8,6 +8,7 @@ import { DataTransferService } from '../../service/data-transfer.service';
 import { Router } from '@angular/router';
 import { CommonService } from '../../service/common.service';
 import { RequestList, DataArray, ResultArray } from '../../model/requestlist.model';
+import {Ng2PaginationModule} from 'ng2-pagination';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { RequestList, DataArray, ResultArray } from '../../model/requestlist.mod
 export class HomeComponent {
     UserCommonObj: any;
     Requestdata: any;
+    count: number;
     constructor(private route: Router, private DT: DataTransferService, private CS: CommonService) {
 
     }
@@ -28,8 +30,10 @@ export class HomeComponent {
         this.CS.getService('/api/request').subscribe(
             data => {
                 this.Requestdata = data;
+                console.log(this.Requestdata);
                 this.Requestdata = Array.of(this.Requestdata);
                 this.Requestdata = this.Requestdata[0].result;
+                this.count=this.Requestdata.length;
             },
             err => { console.log(err) },
             () => { });

@@ -18,8 +18,8 @@ export class CommonService {
   getService(url) {
     let headers = new Headers();
     headers.append('content-type', 'application/x-www-form-urlencoded');
-    headers.append('xAccessToken', window.sessionStorage.getItem('token'));
-    //headers.append('username', window.sessionStorage.getItem('username'));
+    headers.append('x-access-token', window.sessionStorage.getItem('token'));
+    headers.append('username', window.sessionStorage.getItem('username'));
     return this.http.get(this.baseUrl + url, { headers: headers }).map((res: Response) => { return res.json(); });
   }
   getBrowserInfo() {

@@ -37,8 +37,9 @@ $font-metro:Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
 }
 .main-container{
   background:$bg-white;
-.container-flex .content-area{
+ .content-area{
     overflow-y:inherit;
+    
 }
 
 }
