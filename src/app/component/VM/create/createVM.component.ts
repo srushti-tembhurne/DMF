@@ -33,13 +33,11 @@ export class CreateVMComponent {
     onSubmit(){
         let model=this.vmcreationForm.value;
         this.formdata= new createVMModel(model.vmName,model.OS,model.diskSize,model.cpuCore,model.Memory,model.type);
-        alert(JSON.stringify(this.formdata));
         this.CS.postService('/api/request',this.formdata).subscribe(
             data=>{this.Res=data;
-            console.log(this.Res)
         },
             err=>{console.log(err);
-            console.log(err)},
+        },
             ()=>{}); 
 
 

@@ -57,7 +57,6 @@ export class LoginComponent {
             this.router.navigateByUrl('/home');
         } else if (!data.success) {
             this.result = data.result;
-            console.log(data.result);
             this.InVisible = true;
         }
 
