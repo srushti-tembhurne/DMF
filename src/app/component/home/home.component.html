@@ -50,7 +50,7 @@
             <td>{{re.data[0].Memory}}</td>
             <td>{{re.data[0].cpuCore}}</td>
             <td>{{re.data[0].diskSize}}</td>
-            <td>{{re.status}}</td>
+            <td>{{re.status}}  {{re.msg?("- "+re.msg):""}}</td>
         </tr>
         <tr *ngIf="count==0">
             <td colspan="7">No data found</td>
