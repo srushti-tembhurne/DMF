@@ -9,9 +9,6 @@ import { HomeComponent } from './home.component';
 import { CommonService } from '../../service/common.service';
 import { DataTransferService } from '../../service/data-transfer.service';
 import { Router } from '@angular/router';
-console.log("Value for fixture ");
-console.log(HomeComponent);
-
 describe('HomeComponent', () => {
 
     let expectedMsg: string = 'This is a Clarity seed application. This is the default page that loads for the application.';

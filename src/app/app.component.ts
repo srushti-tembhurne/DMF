@@ -14,6 +14,8 @@ export class AppComponent {
     InVisible:boolean;
     UserName:string;
     showNav:boolean = true;
+    open:boolean=false;
+    modelMsg:string;
     constructor(private router: Router,private DT:DataTransferService) {       
          this.DT.changeEmitted$.subscribe(text=>{           
             this.InVisible=text.visible;                      
@@ -26,8 +28,7 @@ export class AppComponent {
     }
     ngOnInit()
     {
-        this.InVisible=false;  
-        this.UserName= "User";    
+        this.InVisible=false;      
     }
     toggleClass(){
         this.showNav = !this.showNav;
@@ -38,5 +39,9 @@ export class AppComponent {
         storage.setItem('expiry_in','');
         storage.setItem('username','');
         this.router.navigateByUrl('/login');
+    }
+    onCancel() {
+        this.open=false; // for create VM component
+        this.router.navigateByUrl('/');
     }
 }

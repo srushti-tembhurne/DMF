@@ -8,7 +8,8 @@ import { DataTransferService } from '../../service/data-transfer.service';
 import { Router } from '@angular/router';
 import { CommonService } from '../../service/common.service';
 import { RequestList, DataArray, ResultArray } from '../../model/requestlist.model';
-import {Ng2PaginationModule} from 'ng2-pagination';
+import { Ng2PaginationModule } from 'ng2-pagination';
+import { AppComponent } from '../../app.component';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class HomeComponent {
     UserCommonObj: any;
     Requestdata: any;
     count: number;
-    constructor(private route: Router, private DT: DataTransferService, private CS: CommonService) {
+    constructor(private route: Router, private DT: DataTransferService, private CS: CommonService, private AC: AppComponent) {
 
     }
 
@@ -29,11 +30,19 @@ export class HomeComponent {
         this.DT.sendData({ visible: false });
         this.CS.getService('/api/request').subscribe(
             data => {
-                this.Requestdata = data;
-                console.log(this.Requestdata);
-                this.Requestdata = Array.of(this.Requestdata);
-                this.Requestdata = this.Requestdata[0].result;
-                this.count=this.Requestdata.length;
+                if (data.success) {
+                    this.Requestdata = data;
+                    this.Requestdata = Array.of(this.Requestdata);
+                    this.Requestdata = this.Requestdata[0].result;
+                    this.Requestdata = this.Requestdata.sort((a, b) => {
+                        return (parseInt(a.id) - parseInt(b.id)) * -1;
+                    });
+                    this.count = this.Requestdata.length;
+
+                } else {
+                    this.AC.onlogout();
+                }
+
             },
             err => { console.log(err) },
             () => { });

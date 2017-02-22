@@ -14,6 +14,7 @@ export class ForgotPasswordComponent {
     constructor(private formBuilder:FormBuilder,public router:Router){}
     onlogin(model:Forgotpw){
         console.log(JSON.stringify(model));
+        //this.forgotPwdfrm.reset();
     }
     ngOnInit()
     {

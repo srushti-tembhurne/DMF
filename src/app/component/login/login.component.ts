@@ -40,14 +40,12 @@ export class LoginComponent {
     }
 
     onlogin() {
-        console.log(this.loginForm.value);
         this.CS.postService('/api/login', this.loginForm.value).subscribe(
             data => { this.loginResult(data); },
             err => { console.log(err) },
             () => { });
     }
     loginResult(data) {
-        console.log(data);
         if (data.success) {
             let storage = window.sessionStorage;
             storage.setItem('token', data.token);

@@ -20,7 +20,7 @@
                
                 <div class="select form-control">
                     <select id="exampleSelect1" value="osList[0]" formControlName="OS" >
-                        <option *ngFor="let os of osList">{{os}}</option>
+                        <option *ngFor="let os of osList" value="{{os.version}}">{{os.name}}</option>
                     </select>
                 </div>
                 
@@ -75,6 +75,7 @@
             <input type="hidden" id="type" value="create-vm" formControlName="type"/>
         </div>
         <button type="submit" class="btn btn-primary" >Create</button>
-        <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
+        <button type="button" class="btn btn-warning" (click)="redirectToHome()">Cancel</button>
     </section>
 </form>
+

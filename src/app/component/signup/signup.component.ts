@@ -18,15 +18,13 @@ export class SignupComponent{
         
     }
     onSubmit(model:any){
-        this.formdata=new signupModel(model.username,model.email,model.password);
-        //alert(JSON.stringify(this.formdata));
+        this.formdata=new signupModel(model.username,model.email,model.password);        
         this.CS.postService('http://172.17.163.56:3000/signup',this.formdata).subscribe(
             data=>{this.Res=data},
             err=>{console.log(err)},
             ()=>{});
     }
-    onCancel(){
-        console.log("Bye !!!");
+    onCancel(){      
         this.router.navigateByUrl('/');
     }
     ngOnInit(){

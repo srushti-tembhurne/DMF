@@ -83,15 +83,7 @@ export class CommonService {
     if (isNaN(majorVersion)) {
       fullVersion = '' + parseFloat(navigator.appVersion);
       majorVersion = parseInt(navigator.appVersion, 10);
-    }
-
-    /*console.log(''
-      + 'Browser name  = ' + browserName + '<br>'
-      + 'Full version  = ' + fullVersion + '<br>'
-      + 'Major version = ' + majorVersion + '<br>'
-      + 'navigator.appName = ' + navigator.appName + '<br>'
-      + 'navigator.userAgent = ' + navigator.userAgent + '<br>'
-    )*/
+    }    
     return {
       'browserName': browserName,
       'fullVersion': fullVersion,
@@ -104,18 +96,15 @@ export class CommonService {
   //Not Included Yet 
   tokenExpiryCheck() {
     let expiry = new Date(window.sessionStorage.getItem('expiry_in'));
-    console.log(expiry);
-    if (expiry && this.compareDates(expiry)) {
-      console.log('Failed...');
+  
+    if (expiry && this.compareDates(expiry)) {    
       return false; //token is not expired
     }
-
     return true; // token has been expired 
   }
   compareDates(expiry: Date) {
     let created = new Date();
-    if ((expiry.getFullYear() >= created.getFullYear()) && (expiry.getMonth() >= created.getMonth()) && (expiry.getDay() >= created.getDay())) {
-      console.log("Pass !!!!")
+    if ((expiry.getFullYear() >= created.getFullYear()) && (expiry.getMonth() >= created.getMonth()) && (expiry.getDay() >= created.getDay())) {      
       return true; //token is not expired
     }
     return false; // token has been expired
