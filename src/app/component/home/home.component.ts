@@ -39,7 +39,7 @@ export class HomeComponent {
                     });
                     this.count = this.Requestdata.length;
 
-                } else {
+                } else if (data.message.indexof("Failed to authenticate token")){
                     this.AC.onlogout();
                 }
 

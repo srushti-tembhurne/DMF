@@ -43,6 +43,8 @@ export class CreateVMComponent {
                 this.AC.modelMsg = this.Res.result;
                 if (this.Res.success) {
                     this.vmcreationForm.reset({ type: 'create-vm' });
+                }else if (this.Res.message.indexof("Failed to authenticate token")){
+                    this.AC.onlogout();
                 }
             },
             err => {
