@@ -1,10 +1,11 @@
 <clr-main-container>
   <clr-header>
-    <button class="navbar-toggler hidden-md-up bars" type="button" (click)="toggleClass();">&#9776;</button>
+    <button class="navbar-toggler hidden-md-up bars" [ngClass]="{'visible': InVisible,'clr-nav-level-1':showNav}" type="button" (click)="toggleClass();">&#9776;</button>
     <div class="branding">
       <a href="#" class="nav-link">
         <span class="clr-icon clr-clarity-logo"></span>
-        <span class="title">Datacenter Management Framework</span>
+        <span class="title desktop">Datacenter Management Framework</span>
+        <span class="title mobile-tab">DCMF</span>
       </a>
     </div>
     <div class="header-actions">

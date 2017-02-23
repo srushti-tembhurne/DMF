@@ -17,7 +17,7 @@ import {InMemoryService} from './server/inMemoryService';*/
 
 
 import { RouterModule } from '@angular/router';
-import { SortDecendingPipe } from './pipe/sort-decending.pipe';
+
 
 
 
@@ -25,9 +25,7 @@ import { SortDecendingPipe } from './pipe/sort-decending.pipe';
 @NgModule({
     declarations: [
         AppComponent,
-        routComponents,
-        SortDecendingPipe,
-        SortDecendingPipe
+        routComponents
     ],
     imports: [
         BrowserModule,

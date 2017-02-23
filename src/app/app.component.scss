@@ -16,6 +16,7 @@ $font-metro:Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
   color:$header-text;
   margin-top:12px;
 }
+
 .header-actions{
   a{
     font-size: 16px;
@@ -43,6 +44,23 @@ $font-metro:Metropolis,"Avenir Next","Helvetica Neue",Arial,sans-serif;
 }
 
 }
-.visible{
+.visible,.mobile-tab{
   display: none;
+}
+
+@media (max-width: 767px){
+  .header{
+    display: inherit;
+    .branding{
+      padding: 0 5px;
+ //     overflow: visible;
+    }
+  }
+  .desktop{
+    display: none;
+  }
+  .mobile-tab{
+    display: block;
+  }
+
 }
