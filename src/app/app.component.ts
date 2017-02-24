@@ -34,11 +34,6 @@ export class AppComponent {
         this.showNav = !this.showNav;
     }
     onlogout() {
-        /*  let storage=window.sessionStorage;
-          storage.setItem('token','');
-          storage.setItem('expiry_in','');
-          storage.setItem('username','');
-          this.router.navigateByUrl('/login');*/
         this.CS.getService('/api/logout').subscribe(
             data => {
                 if (data.success) {
@@ -56,11 +51,4 @@ export class AppComponent {
         this.open = false; // for create VM component
         this.router.navigateByUrl('/');
     }
-    /*  onResize(event) { 
-          if(event.target.innerWidth<576){
-              console.log("Change the title");
-          
-              
-          }
-      }*/
 }
