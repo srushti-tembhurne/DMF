@@ -28,8 +28,10 @@
         </clr-stack-block>
     </clr-stack-block>
 </clr-stack-view> -->
-<h1> List of Requests</h1>
+<h1> List of Requests</h1> 
 <pagination-controls (pageChange)="p = $event" *ngIf="count>10"></pagination-controls>
+<div class="refresh">
+    <button (click)="onRefresh()"> &#x21bb;</button><span>{{refresh_time | date:"medium"}}</span></div>
 <table class="table table-responsive">
     <thead>
         <tr>

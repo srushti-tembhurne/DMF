@@ -20,6 +20,7 @@ export class HomeComponent {
     UserCommonObj: any;
     Requestdata: any;
     count: number;
+    refresh_time:Date;
     constructor(private route: Router, private DT: DataTransferService, private CS: CommonService, private AC: AppComponent) {
 
     }
@@ -28,6 +29,28 @@ export class HomeComponent {
         this.UserCommonObj = this.DT.recievData();
         this.DT.isLoggedIn();
         this.DT.sendData({ visible: false });
+        /*this.CS.getService('/api/request').subscribe(
+            data => {
+                if (data.success) {
+                    this.Requestdata = data;
+                    this.Requestdata = Array.of(this.Requestdata);
+                    this.Requestdata = this.Requestdata[0].result;
+                    this.Requestdata = this.Requestdata.sort((a, b) => {
+                        return (parseInt(a.id) - parseInt(b.id)) * -1;
+                    });
+                    this.count = this.Requestdata.length;
+
+                } else if (data.message.indexof("Failed to authenticate token")){
+                    this.AC.onlogout();
+                }
+
+            },
+            err => { console.log(err) },
+            () => { });*/
+            this.onRefresh();
+    }
+
+    onRefresh(){
         this.CS.getService('/api/request').subscribe(
             data => {
                 if (data.success) {
@@ -38,6 +61,7 @@ export class HomeComponent {
                         return (parseInt(a.id) - parseInt(b.id)) * -1;
                     });
                     this.count = this.Requestdata.length;
+                    this.refresh_time = new Date();
 
                 } else if (data.message.indexof("Failed to authenticate token")){
                     this.AC.onlogout();
