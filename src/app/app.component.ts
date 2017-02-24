@@ -46,8 +46,6 @@ export class AppComponent {
                     storage.setItem('token', '');
                     storage.setItem('expiry_in', '');
                     storage.setItem('username', '');
-                    this.router.navigateByUrl('/login');
-
                 }
 
             },
