@@ -12,6 +12,7 @@ import {AuthService} from './service/auth.service';
 import {CommonService} from './service/common.service';
 import {DataTransferService} from './service/data-transfer.service'; 
 import {Ng2PaginationModule} from 'ng2-pagination';
+
 /*import {InMemoryWebApiModule} from '../../node_modules/angular2-in-memory-web-api';
 import {InMemoryService} from './server/inMemoryService';*/
 

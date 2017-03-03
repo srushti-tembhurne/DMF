@@ -29,7 +29,7 @@ export class LoginComponent {
         private router: Router) {
         this.userAgent = this.CS.getBrowserInfo();
         this.loginForm = this._fb.group({
-            email: '',
+            userId: '',
             password: '',
             userAgent: [this.userAgent, [Validators.required]]
         });
@@ -40,20 +40,22 @@ export class LoginComponent {
     }
 
     onlogin() {
-        this.CS.postService('/api/login', this.loginForm.value).subscribe(
+        this.CS.postService('/api/v1/login', this.loginForm.value).subscribe(
             data => { this.loginResult(data); },
             err => { console.log(err) },
             () => { });
     }
     loginResult(data) {
-        if (data.success) {
+        console.log(data["data"].token);
+        console.log((new Date(data["data"].expiry*1000).toLocaleString()));
+        if (data.status) {
             let storage = window.sessionStorage;
-            storage.setItem('token', data.token);
-            storage.setItem('expiry_in', data.expiry_in);
+            storage.setItem('token', data["data"].token);
+            storage.setItem('expiry_in', (new Date(data["data"].expiry*1000).toLocaleString()));
             storage.setItem('username', data.username);
             this.InVisible = false;
             this.router.navigateByUrl('/home');
-        } else if (!data.success) {
+        } else if (!data.status) {
             this.result = data.result;
             this.InVisible = true;
         }

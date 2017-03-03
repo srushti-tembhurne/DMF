@@ -29,10 +29,10 @@ export class DataTransferService {
     isLoggedIn()
     {     
       const pathName:string=window.location.pathname;
-      if(window.sessionStorage){
+      if(window.sessionStorage){        
                 this.userDetails=window.sessionStorage.getItem('username');
             }   
-            if(!this.userDetails )   
+            if(this.userDetails=="undefined" )   
             {
                 this.router.navigateByUrl('/login');
             }else{

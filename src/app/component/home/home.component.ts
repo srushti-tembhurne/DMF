@@ -51,7 +51,7 @@ export class HomeComponent {
     }
 
     onRefresh(){
-        this.CS.getService('/api/request').subscribe(
+        this.CS.getService('/api/v1/request').subscribe(
             data => {
                 if (data.success) {
                     this.Requestdata = data;
