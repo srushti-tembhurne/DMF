@@ -36,23 +36,21 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>vmName</th>
-            <th>Type</th>
+            <th>vmName</th>           
             <th>Memory</th>
             <th>cpuCore</th>
             <th>diskSize</th>
-            <th>Status</th>
+            <th>OS</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let re of Requestdata | paginate: { itemsPerPage: 10, currentPage: p }">
             <td>{{re.id}}</td>
-            <td>{{re.data[0].vmName}}</td>
-            <td>{{re.type}}</td>
-            <td>{{re.data[0].Memory}}</td>
-            <td>{{re.data[0].cpuCore}}</td>
-            <td>{{re.data[0].diskSize}}</td>
-            <td>{{re.status}}  {{re.msg?("- "+re.msg):""}}</td>
+            <td>{{re.vmName}}</td>          
+            <td>{{re.memory}}</td>
+            <td>{{re.cores}}</td>
+            <td>{{re.storage}}</td>
+            <td>{{re.os}}</td>
         </tr>
         <tr *ngIf="count==0">
             <td colspan="7">No data found</td>

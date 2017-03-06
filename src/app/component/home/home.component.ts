@@ -18,7 +18,7 @@ import { AppComponent } from '../../app.component';
 })
 export class HomeComponent {
     UserCommonObj: any;
-    Requestdata: any;
+    Requestdata=[];
     count: number;
     refresh_time:Date;
     constructor(private route: Router, private DT: DataTransferService, private CS: CommonService, private AC: AppComponent) {
@@ -29,41 +29,47 @@ export class HomeComponent {
         this.UserCommonObj = this.DT.recievData();
         this.DT.isLoggedIn();
         this.DT.sendData({ visible: false });
-        /*this.CS.getService('/api/request').subscribe(
-            data => {
-                if (data.success) {
-                    this.Requestdata = data;
-                    this.Requestdata = Array.of(this.Requestdata);
-                    this.Requestdata = this.Requestdata[0].result;
-                    this.Requestdata = this.Requestdata.sort((a, b) => {
-                        return (parseInt(a.id) - parseInt(b.id)) * -1;
-                    });
-                    this.count = this.Requestdata.length;
-
-                } else if (data.message.indexof("Failed to authenticate token")){
-                    this.AC.onlogout();
-                }
-
-            },
-            err => { console.log(err) },
-            () => { });*/
             this.onRefresh();
     }
 
     onRefresh(){
         this.CS.getService('/api/v1/request').subscribe(
             data => {
-                if (data.success) {
-                    this.Requestdata = data;
-                    this.Requestdata = Array.of(this.Requestdata);
-                    this.Requestdata = this.Requestdata[0].result;
-                    this.Requestdata = this.Requestdata.sort((a, b) => {
-                        return (parseInt(a.id) - parseInt(b.id)) * -1;
-                    });
-                    this.count = this.Requestdata.length;
+                let str= new String(data.msg);
+                let  success:boolean=data.success;    
+                let DataArray:any;
+                let paramArray={}; 
+                let final=[];            
+                            
+                if (data.status) {
+                   /*
+                    this.count = this.Requestdata.length;*/
                     this.refresh_time = new Date();
+                    this.Requestdata=[];
+                    DataArray=data.data;
+                    console.log(DataArray.length);
+                    for(let i=0;i<DataArray.length;i++)
+                    {
+                        let props="parameter_"+i;
+                        paramArray[props]=DataArray[i].parameters;
+                        let tempObj={};
+                        for(let j=0;j< paramArray[props].length;j++)
+                        {
+                            /*console.log(paramArray[props][j]);
+                            console.log(paramArray[props][j].name);
+                            console.log(paramArray[props][j].value);*/
+                            
+                            tempObj[paramArray[props][j].name]=paramArray[props][j].value;
 
-                } else if (data.message.indexof("Failed to authenticate token")){
+                        }
+                        tempObj["id"]=i+1;
+                        this.Requestdata.push(tempObj);
+                    }
+                  
+
+                } else if(!status && (str.includes("Failed to authenticate token")||str.includes("no token found"))/*(str.indexOf("Failed to authenticate token")>-1||str.indexOf("no token found"))*/)
+                {
+                    console.log("Called");
                     this.AC.onlogout();
                 }
 
