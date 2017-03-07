@@ -34,13 +34,16 @@ export class AppComponent {
         this.showNav = !this.showNav;
     }
     onlogout() {
-        this.CS.getService('/api/v1/logout').subscribe(
+       
+        this.CS.deleteService('/api/v1/login').subscribe(
             data => {
-                if (data.success) {
+                if (data.status) {
+                    console.log(data);
                     let storage = window.sessionStorage;
                     storage.setItem('token', '');
                     storage.setItem('expiry_in', '');
                     storage.setItem('username', '');
+                    this.router.navigateByUrl('/login');
                 }
 
             },

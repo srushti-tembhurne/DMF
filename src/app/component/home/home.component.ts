@@ -55,12 +55,7 @@ export class HomeComponent {
                         let tempObj={};
                         for(let j=0;j< paramArray[props].length;j++)
                         {
-                            /*console.log(paramArray[props][j]);
-                            console.log(paramArray[props][j].name);
-                            console.log(paramArray[props][j].value);*/
-                            
-                            tempObj[paramArray[props][j].name]=paramArray[props][j].value;
-
+                           tempObj[paramArray[props][j].name]=paramArray[props][j].value;
                         }
                         tempObj["id"]=i+1;
                         this.Requestdata.push(tempObj);
@@ -69,7 +64,6 @@ export class HomeComponent {
 
                 } else if(!status && (str.includes("Failed to authenticate token")||str.includes("no token found"))/*(str.indexOf("Failed to authenticate token")>-1||str.indexOf("no token found"))*/)
                 {
-                    console.log("Called");
                     this.AC.onlogout();
                 }
 

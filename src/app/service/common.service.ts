@@ -23,6 +23,14 @@ export class CommonService {
     headers.append('username', window.sessionStorage.getItem('username'));
     return this.http.get(this.baseUrl + url, { headers: headers }).map((res: Response) => { return res.json(); });
   }
+  deleteService(url: string){
+    debugger;
+    let headers = new Headers();
+    headers.append('content-type', 'application/x-www-form-urlencoded');
+    headers.append('x-access-token', window.sessionStorage.getItem('token'));
+    headers.append('username', window.sessionStorage.getItem('username'));
+    return this.http.delete(this.baseUrl + url,{ headers: headers }).map((res: Response) => { return res.json(); });
+  }
   getBrowserInfo() {
     var nVer = navigator.appVersion;
     var nAgt = navigator.userAgent;

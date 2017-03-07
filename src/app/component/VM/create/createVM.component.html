@@ -29,7 +29,7 @@
             <label for="type">Type</label>
             <label for="type" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md" [class.invalid]="vmcreationForm.get('type').invalid
                     && (vmcreationForm.get('type').dirty || vmcreationForm.get('type').touched)">
-                <input type="text" id="type"   placeholder="Enter Type" formControlName="type" required>
+                <input type="text" id="type" formControlName="type" readonly>
                 <span class="tooltip-content">
                     Type is Required.
                 </span>
@@ -39,7 +39,7 @@
             <label for="operation">Operation</label>
             <label for="operation" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md" [class.invalid]="vmcreationForm.get('operation').invalid
                     && (vmcreationForm.get('operation').dirty || vmcreationForm.get('operation').touched)">
-                <input type="text" id="operation"   placeholder="Enter Operation" formControlName="operation" required>
+                <input type="text" id="operation" formControlName="operation" readonly>
                 <span class="tooltip-content">
                     Operation is Required.
                 </span>

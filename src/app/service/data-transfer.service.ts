@@ -32,7 +32,7 @@ export class DataTransferService {
       if(window.sessionStorage){        
                 this.userDetails=window.sessionStorage.getItem('username');
             }   
-            if(this.userDetails=="undefined")   
+            if(this.userDetails=="undefined" ||!this.userDetails)   
             {
                 this.router.navigateByUrl('/login');
             }else{

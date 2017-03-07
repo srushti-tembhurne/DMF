@@ -26,8 +26,8 @@ export class CreateVMComponent {
         this.vmcreationForm = this._fb.group({
             Name:['',[Validators.required]],
             description:['',[Validators.required,Validators.minLength(3)]],
-            type:['',[Validators.required ,Validators.minLength(2)]],
-            operation:['',[Validators.required]],
+            type:['VM',[Validators.required ,Validators.minLength(2)]],
+            operation:['CREATE',[Validators.required]],
             vmName: ['', [Validators.required, Validators.minLength(3)]],
             OS: [this.osList[0].name, [Validators.required]],
             diskSize: ['', [Validators.required]],
