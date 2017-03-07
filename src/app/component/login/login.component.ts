@@ -29,7 +29,7 @@ export class LoginComponent {
         private router: Router) {
         this.userAgent = this.CS.getBrowserInfo();
         this.loginForm = this._fb.group({
-            userId: '',
+            userId:'',
             password: '',
             userAgent: [this.userAgent, [Validators.required]]
         });
@@ -46,13 +46,11 @@ export class LoginComponent {
             () => { });
     }
     loginResult(data) {
-        console.log(data["data"].token);
-        console.log((new Date(data["data"].expiry*1000).toLocaleString()));
         if (data.status) {
             let storage = window.sessionStorage;
             storage.setItem('token', data["data"].token);
             storage.setItem('expiry_in', (new Date(data["data"].expiry*1000).toLocaleString()));
-            storage.setItem('username', data.username);
+            storage.setItem('username', this.loginForm.value["userId"]);
             this.InVisible = false;
             this.router.navigateByUrl('/home');
         } else if (!data.status) {

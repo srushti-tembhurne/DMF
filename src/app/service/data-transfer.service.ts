@@ -27,20 +27,22 @@ export class DataTransferService {
     recievData()  {  return this.data; }
     //Method used to check the user is loggedin or not and redirect respectivley 
     isLoggedIn()
-    {     
+    {  
       const pathName:string=window.location.pathname;
       if(window.sessionStorage){        
                 this.userDetails=window.sessionStorage.getItem('username');
             }   
-            if(this.userDetails=="undefined" )   
+            if(this.userDetails=="undefined")   
             {
                 this.router.navigateByUrl('/login');
             }else{
               if(pathName.indexOf('login')>-1)
               {
-                this.router.navigateByUrl('/home');
-              }else{
+               // this.router.navigateByUrl('/home'); 
                 this.router.navigateByUrl(pathName);
+              }else{
+              // this.router.navigateByUrl(pathName);
+               this.router.navigateByUrl('/home'); 
               }
               
             }

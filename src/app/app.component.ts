@@ -34,7 +34,7 @@ export class AppComponent {
         this.showNav = !this.showNav;
     }
     onlogout() {
-        this.CS.getService('/api/logout').subscribe(
+        this.CS.getService('/api/v1/logout').subscribe(
             data => {
                 if (data.success) {
                     let storage = window.sessionStorage;
