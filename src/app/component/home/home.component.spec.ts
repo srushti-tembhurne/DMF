@@ -7,7 +7,7 @@ import { async, TestBed, ComponentFixture } from "@angular/core/testing";
 import { ClarityModule } from 'clarity-angular';
 import { HomeComponent } from './home.component';
 import { CommonService } from '../../service/common.service';
-import { DataTransferService } from '../../service/data-transfer.service';
+//import { DataTransferService } from '../../service/data-transfer.service';
 import { Router } from '@angular/router';
 describe('HomeComponent', () => {
 
@@ -24,7 +24,6 @@ describe('HomeComponent', () => {
             imports: [
                 ClarityModule.forRoot()
             ], providers: [Router,
-                { provide: DataTransferService, useClass: DataTransferService },
                 { provide: CommonService, useClass: CommonService }
             ]
         });

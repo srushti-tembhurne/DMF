@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { Router } from '@angular/router';
-import { DataTransferService } from '../../../service/data-transfer.service';
+//import { DataTransferService } from '../../../service/data-transfer.service';
 import { CommonService } from '../../../service/common.service';
 import { AppComponent } from '../../../app.component';
 
@@ -18,26 +18,27 @@ export class CreateVMComponent {
     Res: any;
     cancelFlag: boolean = true;
 
-    constructor(private _fb: FormBuilder, private router: Router, private DT: DataTransferService, private CS: CommonService, private AC: AppComponent) {
+    constructor(private _fb: FormBuilder, private router: Router/*, private DT: DataTransferService*/, private CS: CommonService, private AC: AppComponent) {
         this.osList = [{ name: 'Ubuntu 8', version: 'ubuntu-8.04-desktop-amd64.iso' },
         { name: 'Ubuntu 14', version: 'ubuntu-14.04.1-server-amd64.iso' },
         { name: 'CentOS 7', version: 'CentOS-7-x86_64-Minimal-1611.iso' },
         { name: 'Windows Server 64bit', version: '8250.0WIN8_X64_SERVER.ISO' }];
         this.vmcreationForm = this._fb.group({
-            Name:['',[Validators.required]],
-            description:['',[Validators.required,Validators.minLength(3)]],
-            type:['VM',[Validators.required ,Validators.minLength(2)]],
-            operation:['CREATE',[Validators.required]],
-            vmName: ['', [Validators.required, Validators.minLength(3)]],
-            OS: [this.osList[0].name, [Validators.required]],
-            diskSize: ['', [Validators.required]],
-            cpuCore: ['1', [Validators.required]],
-            Memory: ['', [Validators.required]],
+            Name:['',Validators.required],
+            description:['',Validators.required],
+            type:['',Validators.required ],
+            operation:['',[Validators.required]],
+            vmName: ['', Validators.required],
+            OS: ['', Validators.required],
+            diskSize: ['', Validators.required],
+            cpuCore: ['1', Validators.required],
+            Memory: ['', Validators.required],
             
         });
     }
 
     onSubmit() {
+        console.log(this.vmcreationForm);
         let model = this.vmcreationForm.value;
         this.formdata = {
             "name": model.Name,
@@ -83,12 +84,11 @@ export class CreateVMComponent {
                     //this.AC.onlogout();
                     this.cancelFlag = false;
                 } else if (!this.Res.success) {
-                    this.cancelFlag = true;
-                    console.log("this");
+                    this.cancelFlag = true;                   
                 }
                 this.AC.open = true;
                 this.AC.modelMsg = this.Res.result || str;
-                this.DT.emitChange(this.cancelFlag);
+                this.CS.emitChange(this.cancelFlag);
             },
             err => {
                 console.log(err);
@@ -99,8 +99,7 @@ export class CreateVMComponent {
     }
     redirectToHome() {
         this.AC.open = false;
-        if (this.cancelFlag) {
-            console.log(this.Res.result);
+        if (this.cancelFlag) {          
             if (this.Res.result == "Request saved") {
                 this.AC.onCancel();
             } else {
@@ -116,7 +115,7 @@ export class CreateVMComponent {
             data=>{this.osList=data},
             err=>{console.log(err)},
             ()=>{});*/
-        //     this.DT.isLoggedIn();
+        //     this.CS.isLoggedIn();
 
     }
     ngOnDestroy() {

@@ -1,5 +1,5 @@
 <h1>VM Creation Form</h1>
-<form class="form" [formGroup]="vmcreationForm" (ngSubmit)="onSubmit(vmcreationForm.value)" [hidden]="submitted">
+<form   class="form" [formGroup]="vmcreationForm" (ngSubmit)="onSubmit(vmcreationForm.value)" [hidden]="submitted">
     <section class="form-block">
         <div class="form-group">
             <label for="Name">Name</label>
@@ -113,7 +113,7 @@
         <div class="form-group">
             <input type="hidden" id="type" value="CREATE" formControlName="type" />
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary" [disabled]="vmcreationForm.invalid">Create</button>
         <button type="button" class="btn btn-warning" (click)="redirectToHome()">Cancel</button>
     </section>
 </form>

@@ -7,7 +7,7 @@ import { async, TestBed, ComponentFixture } from "@angular/core/testing";
 import { ClarityModule } from 'clarity-angular';
 import { LoginComponent } from './login.component';
 import {CommonService} from '../../service/common.service';
-import {DataTransferService} from '../../service/data-transfer.service';
+//import {DataTransferService} from '../../service/data-transfer.service';
 import{AppModule} from '../../app.module';
 
 
@@ -26,7 +26,7 @@ describe('LoginComponent', () => {
                 ClarityModule.forRoot(),
                 AppModule,
             ],
-             providers:[CommonService,DataTransferService]
+             providers:[CommonService]
         });
 
         fixture = TestBed.createComponent(LoginComponent);

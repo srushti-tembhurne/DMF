@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { loginModel } from '../../model/login.model';
 import { CommonService } from '../../service/common.service';
-import { DataTransferService } from '../../service/data-transfer.service';
+//import { DataTransferService } from '../../service/data-transfer.service';
 
 
 import 'rxjs/Rx';
@@ -25,7 +25,7 @@ export class LoginComponent {
     constructor(
         private _fb: FormBuilder,
         private CS: CommonService,
-        private DT: DataTransferService,
+        /*private DT: DataTransferService,*/
         private router: Router) {
         this.userAgent = this.CS.getBrowserInfo();
         this.loginForm = this._fb.group({
@@ -33,8 +33,8 @@ export class LoginComponent {
             password: '',
             userAgent: [this.userAgent, [Validators.required]]
         });
-        this.DT.sendData({ visible: true });
-        this.DT.isLoggedIn();
+        this.CS.sendData({ visible: true });
+        this.CS.isLoggedIn();
 
 
     }
@@ -47,6 +47,7 @@ export class LoginComponent {
     }
     loginResult(data) {
         if (data.status) {
+            debugger;
             let storage = window.sessionStorage;
             storage.setItem('token', data["data"].token);
             storage.setItem('expiry_in', (new Date(data["data"].expiry*1000).toLocaleString()));

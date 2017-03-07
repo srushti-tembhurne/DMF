@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './service/auth.service';
 
 import {CommonService} from './service/common.service';
-import {DataTransferService} from './service/data-transfer.service'; 
+//import {DataTransferService} from './service/data-transfer.service'; 
 import {Ng2PaginationModule} from 'ng2-pagination';
 
 /*import {InMemoryWebApiModule} from '../../node_modules/angular2-in-memory-web-api';
@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
         ClarityModule.forRoot(),
         ROUTING      
     ],
-    providers: [AuthService,CommonService,DataTransferService],
+    providers: [AuthService,CommonService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

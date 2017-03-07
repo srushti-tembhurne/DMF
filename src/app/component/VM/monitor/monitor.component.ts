@@ -10,7 +10,7 @@ export class MonitorComponent implements OnInit {
     /*this.CS.getService('').subscribe(
       data=>{this.MonitorList=data},
       err=>{console.log(err)},
-      ()=>{ console.log('Completed MONITOR ')}
+      ()=>{ }
     );*/
    }
 
