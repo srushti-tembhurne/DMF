@@ -17,7 +17,7 @@ export class AppComponent {
     UserName: string;
     showNav: boolean = true;
     open: boolean = false;
-    modelMsg: string;
+    modelMsg: any;
    // @ViewChild(CreateVMComponent) VMC:CreateVMComponent;
     constructor(private router: Router, /*private DT: DataTransferService,*/ private CS: CommonService) {
         /*this.DT.changeEmitted$.subscribe(text => {

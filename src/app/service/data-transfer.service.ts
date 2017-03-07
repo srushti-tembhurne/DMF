@@ -28,7 +28,6 @@ export class DataTransferService {
   //Method used to check the user is loggedin or not and redirect respectivley 
   isLoggedIn() {
     const pathName: string = window.location.pathname;
-    debugger;
     if (window.sessionStorage) {
       this.userToken = window.sessionStorage.getItem('token');
 

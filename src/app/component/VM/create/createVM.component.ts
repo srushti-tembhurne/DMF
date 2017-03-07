@@ -26,8 +26,8 @@ export class CreateVMComponent {
         this.vmcreationForm = this._fb.group({
             Name:['',Validators.required],
             description:['',Validators.required],
-            type:['',Validators.required ],
-            operation:['',[Validators.required]],
+            type:['VM',Validators.required ],
+            operation:['CREATE',[Validators.required]],
             vmName: ['', Validators.required],
             OS: ['', Validators.required],
             diskSize: ['', Validators.required],
@@ -40,7 +40,7 @@ export class CreateVMComponent {
     onSubmit() {
         console.log(this.vmcreationForm);
         let model = this.vmcreationForm.value;
-        this.formdata = {
+       /* this.formdata = {
             "name": model.Name,
             "description": model.description,
             "type": model.type,
@@ -73,21 +73,23 @@ export class CreateVMComponent {
                 }
 
             ]
-        }       
+        }*/
+        this.formdata = {name: model.Name,description: model.description,type: model.type,operation: model.operation,parameters:[{name: "vmName",value: model.vmName,type: "STRING"},{name: "cores",value: model.cpuCore,type: "NUMBER"},{name: "memory",value: model.Memory,type: "NUMBER"},{name: "storage",value: model.diskSize,type: "NUMBER"},{name: "os",value: model.OS,type: "STRING"}]}       
+        console.log(this.formdata);
         this.CS.postService('/api/v1/request', this.formdata).subscribe(
             data => {
                 let str = new String(data.message);
                 this.Res = data;
-                if (this.Res.success) {
-                    this.vmcreationForm.reset({ type: 'CREATE' });
+                if (this.Res.status) {
+                    this.vmcreationForm.reset();
                 } else if (str.indexOf("Failed to authenticate token") > -1) {
                     //this.AC.onlogout();
                     this.cancelFlag = false;
-                } else if (!this.Res.success) {
+                } else if (!this.Res.status) {
                     this.cancelFlag = true;                   
                 }
                 this.AC.open = true;
-                this.AC.modelMsg = this.Res.result || str;
+                this.AC.modelMsg = "Request Saved Successfully...";
                 this.CS.emitChange(this.cancelFlag);
             },
             err => {

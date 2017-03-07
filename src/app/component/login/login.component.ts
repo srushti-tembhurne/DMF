@@ -47,7 +47,6 @@ export class LoginComponent {
     }
     loginResult(data) {
         if (data.status) {
-            debugger;
             let storage = window.sessionStorage;
             storage.setItem('token', data["data"].token);
             storage.setItem('expiry_in', (new Date(data["data"].expiry*1000).toLocaleString()));
